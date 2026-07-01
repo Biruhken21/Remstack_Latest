@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Export</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: transparent;
+        }
+
+        .icon-container {
+            width: 512px;
+            height: 512px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg {
+            width: 90%;
+            height: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icon-container">
+        <svg viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#c9a87c" />
+                    <stop offset="100%" stop-color="#a67c52" />
+                </linearGradient>
+            </defs>
+            <path d="M20 70 L50 85 L80 70 L50 55 Z" fill="url(#logo-gradient)" />
+            <path d="M20 50 L50 65 L80 50 L50 35 Z" fill="url(#logo-gradient)" fill-opacity="0.8" />
+            <path d="M20 30 L50 45 L80 30 L50 15 Z" fill="url(#logo-gradient)" fill-opacity="0.6" />
+            <circle cx="50" cy="45" r="6" fill="white" />
+            <line x1="50" y1="15" x2="50" y2="85" stroke="white" stroke-width="1" stroke-dasharray="4 2" />
+        </svg>
+    </div>
+</body>
+
+</html>
