@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import Partners from '../components/Partners';
 import SEO from '../components/SEO';
 
 const techStackItems = [
@@ -100,6 +101,9 @@ const Home = () => {
 
             {/* Services Section */}
             <Services />
+
+            {/* Partners Section */}
+            <Partners />
 
             {/* What Digital Solutions Your Business Need? */}
             <section className="py-24 bg-white dark:bg-[#1a2332] relative overflow-hidden">

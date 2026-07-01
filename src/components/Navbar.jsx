@@ -81,10 +81,10 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link
                         to="/"
-                        className="flex items-center gap-2 group"
+                        className="flex items-center gap-2 group mr-8"
                         onClick={handleHomeClick}
                     >
-                        <Logo className="h-9" isScrolled={isScrolled} />
+                        <Logo className="h-8" isScrolled={isScrolled} />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -160,7 +160,7 @@ const Navbar = () => {
                         {/* CTA Button */}
                         <Link
                             to="/contact"
-                            className="ml-3 px-5 py-2.5 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95"
+                            className="ml-3 px-4 py-2 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 whitespace-nowrap"
                         >
                             Get Started
                         </Link>
@@ -168,6 +168,12 @@ const Navbar = () => {
 
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center gap-2">
+                        <Link
+                            to="/contact"
+                            className="px-4 py-2 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary-dark transition-all"
+                        >
+                            Get Started
+                        </Link>
                         <button
                             onClick={toggleTheme}
                             className={`p-2 rounded-lg transition-colors ${
