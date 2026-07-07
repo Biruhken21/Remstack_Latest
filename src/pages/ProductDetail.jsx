@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { ChevronLeft, ShoppingCart, CheckCircle, Package, Settings, Info } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import OrderModal from '../components/OrderModal';
-import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import SEO from '../components/SEO';
 
 const ProductDetail = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState(null);
+    const product = useMemo(() => products.find(p => p.id === id), [id]);
     const { t } = useLanguage();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        const found = products.find(p => p.id === id);
-        setProduct(found);
         window.scrollTo(0, 0);
     }, [id]);
 
@@ -116,7 +113,7 @@ const ProductDetail = () => {
                             <div className="pt-8">
                                 <button
                                     onClick={() => setIsModalOpen(true)}
-                                    className="w-full py-5 bg-primary text-white rounded-2xl font-black text-xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 flex items-center justify-center space-x-3 active:scale-95"
+                                    className="w-full py-5 bg-gradient-to-r from-primary to-accent text-white rounded-2xl font-black text-xl hover:from-primary-dark hover:to-accent-light transition-all shadow-lg flex items-center justify-center space-x-3 active:scale-95"
                                 >
                                     <ShoppingCart className="w-6 h-6" />
                                     <span>{t(translations, 'products.orderNow')}</span>

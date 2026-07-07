@@ -1,11 +1,33 @@
+import React, { useEffect, useMemo, useState } from 'react';
 import { Mail, Phone, MapPin, MessageCircle, Send, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
-import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
 const Contact = () => {
     const { t } = useLanguage();
+    const geolocationSupported = useMemo(() => typeof navigator !== 'undefined' && !!navigator.geolocation, []);
+    const [location, setLocation] = useState(null);
+    const [geoError, setGeoError] = useState(geolocationSupported ? null : 'Geolocation is not supported in this browser.');
+
+    useEffect(() => {
+        if (!geolocationSupported) return;
+
+        navigator.geolocation.getCurrentPosition(
+            ({ coords }) => {
+                setLocation(`${coords.latitude.toFixed(4)}, ${coords.longitude.toFixed(4)}`);
+            },
+            (error) => {
+                if (error.code === error.PERMISSION_DENIED) {
+                    setGeoError('Location permission denied.');
+                } else {
+                    setGeoError('Unable to determine your location.');
+                }
+            },
+            { timeout: 10000 }
+        );
+    }, [geolocationSupported]);
+
     return (
         <div className="bg-gray-50 pt-20">
             <SEO
@@ -44,7 +66,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Contact Form */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-200">
+                        <div className="bg-white border-2 border-gray-200 p-8 md:p-10 rounded-2xl shadow-lg">
                             <div className="mb-8">
                                 <h2 className="text-2xl font-black text-secondary mb-2">{t(translations, 'contact.formTitle')}</h2>
                                 <p className="text-gray-500 text-sm">{t(translations, 'contact.formSubtitle')}</p>
@@ -131,7 +153,7 @@ const Contact = () => {
 
                                 <button
                                     type="submit"
-                                    className="w-full py-4 bg-primary text-white rounded-xl font-semibold text-base hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98]"
+                                    className="w-full py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-semibold text-base hover:from-primary-dark hover:to-accent-light transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.98]"
                                 >
                                     <Send className="w-5 h-5" />
                                     <span>{t(translations, 'contact.submit')}</span>
@@ -181,8 +203,23 @@ const Contact = () => {
                             </div>
                         </div>
 
+                        {(location || geoError) && (
+                            <div className="bg-white border-2 border-gray-200 p-6 rounded-xl shadow-md">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <MapPin className="w-5 h-5 text-primary" />
+                                    <span className="text-sm font-black text-secondary uppercase tracking-tight">Office proximity</span>
+                                </div>
+                                <p className="text-sm text-gray-600 mb-2">Your browser location is:</p>
+                                {location ? (
+                                    <p className="text-sm font-semibold text-secondary">{location}</p>
+                                ) : (
+                                    <p className="text-sm font-semibold text-secondary">{geoError}</p>
+                                )}
+                            </div>
+                        )}
+
                         {/* Business Hours */}
-                        <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-6 rounded-2xl border border-primary/10">
+                        <div className="bg-white border-2 border-gray-200 p-6 rounded-xl shadow-md">
                             <div className="flex items-center gap-3 mb-4">
                                 <Clock className="w-5 h-5 text-primary" />
                                 <span className="text-sm font-black text-secondary uppercase tracking-tight">{t(translations, 'contact.chatSupport')}</span>

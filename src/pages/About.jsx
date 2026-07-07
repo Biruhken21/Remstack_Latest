@@ -147,13 +147,13 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-8 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                                className="bg-white border-2 border-gray-200 p-6 rounded-xl shadow-md hover:border-primary hover:shadow-lg transition-all"
                             >
-                                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
-                                    <feature.icon className="w-7 h-7 text-primary group-hover:text-white" />
+                                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                    <feature.icon className="w-6 h-6 text-primary" />
                                 </div>
-                                <h3 className="text-xl font-bold text-secondary mb-3">{feature.title}</h3>
-                                <p className="text-gray-600 leading-relaxed text-sm">{feature.desc}</p>
+                                <h3 className="text-lg font-bold text-secondary mb-2">{feature.title}</h3>
+                                <p className="text-gray-700 leading-relaxed text-sm font-medium">{feature.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -198,13 +198,13 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="text-center p-10 bg-gray-50 rounded-2xl hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5 transition-all group border border-gray-100"
+                                className="bg-white border-2 border-gray-200 p-8 rounded-xl shadow-md hover:border-primary hover:shadow-lg transition-all text-center"
                             >
-                                <div className={`w-20 h-20 bg-gradient-to-br ${principle.gradient} rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-xl transition-all`}>
-                                    <principle.icon className="w-10 h-10 text-white" />
+                                <div className={`w-16 h-16 bg-gradient-to-br ${principle.gradient} rounded-xl shadow-md flex items-center justify-center mx-auto mb-4`}>
+                                    <principle.icon className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-secondary mb-4">{principle.title}</h3>
-                                <p className="text-gray-600 leading-relaxed">{principle.desc}</p>
+                                <h3 className="text-xl font-bold text-secondary mb-3">{principle.title}</h3>
+                                <p className="text-gray-700 leading-relaxed text-sm font-medium">{principle.desc}</p>
                             </motion.div>
                         ))}
                     </div>

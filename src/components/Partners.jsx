@@ -2,13 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const partners = [
-    { id: 1, name: 'Partner 1', image: '/partner1.png' },
-    { id: 2, name: 'Partner 2', image: '/partner2.png' },
-    { id: 3, name: 'Partner 3', image: '/partner3.png' },
-    { id: 4, name: 'Partner 1', image: '/partner1.png' },
-    { id: 5, name: 'Partner 2', image: '/partner2.png' },
-    { id: 6, name: 'Partner 3', image: '/partner3.png' },
-    { id: 7, name: 'Partner 1', image: '/partner1.png' },
+    { id: 1, name: 'Yoda Coffee', initials: 'YC', logo: '/partners/yoda-coffee.png', color: 'from-amber-600 to-amber-800' },
+    { id: 2, name: 'Aloha Real Estate Marketing', initials: 'AR', logo: '/partners/aloha-realestate.png', color: 'from-sky-500 to-sky-700' },
+    { id: 3, name: 'Besys Technologies', initials: 'BT', logo: '/partners/besys-technologies.png', color: 'from-indigo-500 to-indigo-700' },
+    { id: 4, name: 'Sholla Technologies', initials: 'ST', logo: '/partners/sholla-technologies.png', color: 'from-teal-500 to-teal-700' },
+    { id: 5, name: 'Afnex Tech Hub', initials: 'AH', logo: '/partners/afnex-tech-hub.png', color: 'from-violet-500 to-violet-700' },
 ];
 
 const Partners = () => {
@@ -60,11 +58,22 @@ const Partners = () => {
                                 key={index}
                                 className="flex items-center justify-center min-w-[180px] h-24 group cursor-pointer"
                             >
-                                <img
-                                    src={partner.image}
-                                    alt={partner.name}
-                                    className="max-h-full max-w-full object-contain transition-all duration-300"
-                                />
+                                <div className="w-24 h-24 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-4 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-10`}></div>
+                                    <img
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className="w-full h-full object-contain relative z-10"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            const parent = e.target.parentElement;
+                                            const placeholder = document.createElement('div');
+                                            placeholder.className = 'w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm relative z-10';
+                                            placeholder.textContent = partner.initials;
+                                            parent.appendChild(placeholder);
+                                        }}
+                                    />
+                                </div>
                             </div>
                         ))}
                     </motion.div>
@@ -79,7 +88,7 @@ const Partners = () => {
                     className="mt-12 text-center"
                 >
                     <p className="text-gray-500 dark:text-gray-400 text-sm">
-                        Proud to collaborate with industry leaders and innovative startups
+                        Trusted by leading Ethiopian businesses and tech innovators
                     </p>
                 </motion.div>
             </div>

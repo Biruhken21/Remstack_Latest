@@ -185,7 +185,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
                                 <div className="flex flex-col space-y-2 pt-2">
                                     <button
                                         type="submit"
-                                        className="w-full px-5 py-3 bg-primary text-white rounded font-bold text-sm hover:bg-primary-dark transition-all flex items-center justify-center space-x-2 shadow-lg shadow-primary/20 active:scale-[0.98]"
+                                        className="w-full px-5 py-3 bg-gradient-to-r from-primary to-accent text-white rounded font-bold text-sm hover:from-primary-dark hover:to-accent-light transition-all flex items-center justify-center space-x-2 shadow-lg active:scale-[0.98]"
                                     >
                                         <Send className="w-4 h-4" />
                                         <span>{t(translations, 'modal.submit')}</span>
@@ -208,12 +208,12 @@ const OrderModal = ({ isOpen, onClose, product }) => {
                                 <p className="text-gray-600 text-sm max-w-sm mx-auto leading-relaxed">
                                     {t(translations, 'modal.successDesc')}
                                 </p>
-                                <button
-                                    onClick={onClose}
-                                    className="mt-4 px-6 py-2.5 bg-primary text-white rounded font-bold text-sm hover:bg-primary-dark transition-all"
-                                >
-                                    {t(translations, 'modal.close')}
-                                </button>
+                                    <button
+                                        onClick={onClose}
+                                        className="mt-4 px-6 py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded font-bold text-sm hover:from-primary-dark hover:to-accent-light transition-all"
+                                    >
+                                        {t(translations, 'modal.close')}
+                                    </button>
                             </div>
                         )}
                     </div>

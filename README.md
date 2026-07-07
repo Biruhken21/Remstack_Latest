@@ -11,6 +11,26 @@ Currently, two official plugins are available:
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
+## Production readiness
+
+This project is now configured for production deployment with the following improvements:
+
+- Updated CI workflow for linting, building, and GitHub Pages deployment.
+- Added PWA support with offline caching and app manifest.
+- Improved SEO metadata and canonical URL handling across routes.
+- Added geo metadata for local relevance and better search visibility.
+- Streamlined build pipeline for production asset optimization.
+
+### Recommended commands
+
+- `npm install`
+- `npm run lint`
+- `npm run build`
+- `npm run check`
+- `npm run preview`
+
+If you want to deploy manually, push to `main` and the GitHub Actions workflow will build and deploy the `dist` folder to `gh-pages`.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

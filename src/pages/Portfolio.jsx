@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code, Smartphone, Globe, BarChart } from 'lucide-react';
+import { ExternalLink, Github, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const projects = [
@@ -32,13 +32,31 @@ const projects = [
         color: 'bg-indigo-100 text-indigo-600'
     },
     {
-        title: 'Digital Marketing Dashboard',
-        category: 'Digital Marketing',
-        description: 'Analytics dashboard for tracking campaign performance, ROI, and customer engagement metrics.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-        tags: ['React', 'Python', 'Chart.js', 'AWS'],
-        icon: BarChart,
-        color: 'bg-emerald-100 text-emerald-600'
+        title: 'Cloud Infrastructure Migration',
+        category: 'Cloud & DevOps',
+        description: 'Seamless migration of enterprise infrastructure to AWS cloud with auto-scaling, load balancing, and disaster recovery.',
+        image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop',
+        tags: ['AWS', 'Docker', 'Terraform', 'Kubernetes'],
+        icon: Cloud,
+        color: 'bg-cyan-100 text-cyan-600'
+    },
+    {
+        title: 'Security Audit & Penetration Testing',
+        category: 'Cybersecurity',
+        description: 'Comprehensive security assessment including vulnerability scanning, penetration testing, and remediation planning.',
+        image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop',
+        tags: ['Kali Linux', 'Metasploit', 'Wireshark', 'Nmap'],
+        icon: Shield,
+        color: 'bg-rose-100 text-rose-600'
+    },
+    {
+        title: 'Server Installation & Configuration',
+        category: 'Infrastructure',
+        description: 'End-to-end server setup including hardware installation, OS configuration, network setup, and security hardening.',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+        tags: ['Linux', 'Windows Server', 'VMware', 'RAID'],
+        icon: Server,
+        color: 'bg-orange-100 text-orange-600'
     },
     {
         title: 'School Management Portal',
@@ -57,10 +75,28 @@ const projects = [
         tags: ['Flutter', 'Node.js', 'Redis', 'Docker'],
         icon: Smartphone,
         color: 'bg-rose-100 text-rose-600'
+    },
+    {
+        title: 'Data Migration & ETL Pipeline',
+        category: 'Cloud & DevOps',
+        description: 'Enterprise data migration solution with automated ETL pipelines, zero data loss, and real-time validation.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+        tags: ['Apache Spark', 'Python', 'Airflow', 'Snowflake'],
+        icon: Database,
+        color: 'bg-amber-100 text-amber-600'
+    },
+    {
+        title: 'Enterprise CCTV & Access Control',
+        category: 'Infrastructure',
+        description: 'Complete surveillance solution with HD cameras, centralized monitoring, access control, and remote viewing.',
+        image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=600&h=400&fit=crop',
+        tags: ['Hikvision', 'Dahua', 'NVR', 'Biometrics'],
+        icon: Camera,
+        color: 'bg-teal-100 text-teal-600'
     }
 ];
 
-const categories = ['All', 'Web Development', 'Mobile App', 'Custom Software', 'Digital Marketing'];
+const categories = ['All', 'Web Development', 'Mobile App', 'Custom Software', 'Cloud & DevOps', 'Cybersecurity', 'Infrastructure'];
 
 const Portfolio = () => {
     const [activeCategory, setActiveCategory] = React.useState('All');
@@ -75,14 +111,18 @@ const Portfolio = () => {
                 title="Portfolio - RemStack Technologies"
                 description="Explore our portfolio of successful software projects including web apps, mobile apps, and custom solutions."
             />
-            {/* Header */}
-            <section className="bg-secondary py-24 relative overflow-hidden">
+            
+            {/* Header Section */}
+            <section className="relative py-20 bg-gradient-to-b from-secondary to-secondary/95 dark:from-[#0a0f1a] dark:to-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+                
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-black text-white mb-6"
+                        className="text-4xl md:text-5xl font-black text-white mb-4"
                     >
                         Our <span className="gradient-text">Portfolio</span>
                     </motion.h1>
@@ -97,18 +137,19 @@ const Portfolio = () => {
                 </div>
             </section>
 
-            {/* Filter Tabs */}
-            <section className="py-12 bg-white border-b border-gray-100 sticky top-16 z-30">
+            {/* Filter Tabs - White Background */}
+            {/* Section bg: WHITE (#FFFFFF) → Box/Tab bg: GREY (#E5E7EB) */}
+            <section className="py-8 bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-center gap-3">
                         {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                                     activeCategory === cat
-                                        ? 'bg-primary text-white shadow-md'
-                                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+                                        ? 'bg-gradient-to-r from-primary to-accent text-white shadow-md'
+                                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                                 }`}
                             >
                                 {cat}
@@ -118,48 +159,52 @@ const Portfolio = () => {
                 </div>
             </section>
 
-            {/* Projects Grid */}
-            <section className="py-16 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Projects Grid - Grey Background */}
+            {/* Section bg: GREY (#E5E7EB) → Card bg: WHITE (#FFFFFF) */}
+            <section className="py-20 bg-gray-200 relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <motion.div 
+                        layout
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
                         {filteredProjects.map((project, i) => (
                             <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                key={project.title}
+                                layout
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                                className="bg-white rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-primary hover:shadow-xl transition-all group"
                             >
-                                <div className="relative overflow-hidden h-52">
+                                <div className="relative overflow-hidden h-56">
                                     <img
                                         src={project.image}
                                         alt={project.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                                        <div className="flex gap-3">
-                                            <button className="p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/40 transition-colors">
-                                                <ExternalLink className="w-5 h-5 text-white" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                                        <div className="flex gap-2">
+                                            <button className="p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
+                                                <ExternalLink className="w-4 h-4" />
                                             </button>
-                                            <button className="p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/40 transition-colors">
-                                                <Github className="w-5 h-5 text-white" />
+                                            <button className="p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
+                                                <Github className="w-4 h-4" />
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <div className="flex items-center gap-3 mb-3">
+                                    <div className="flex items-center gap-2 mb-3">
                                         <div className={`w-10 h-10 ${project.color} rounded-lg flex items-center justify-center`}>
                                             <project.icon className="w-5 h-5" />
                                         </div>
-                                        <span className="text-xs font-semibold text-primary uppercase tracking-wider">{project.category}</span>
+                                        <span className="text-xs font-bold text-primary uppercase tracking-wider">{project.category}</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-secondary mb-2">{project.title}</h3>
                                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">{project.description}</p>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tags.map((tag, j) => (
-                                            <span key={j} className="px-3 py-1 bg-gray-50 text-gray-600 text-xs font-medium rounded-full border border-gray-100">
+                                            <span key={j} className="px-3 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-md">
                                                 {tag}
                                             </span>
                                         ))}
@@ -167,25 +212,42 @@ const Portfolio = () => {
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="py-20 bg-primary relative overflow-hidden">
+            {/* CTA Section - Gradient */}
+            <section className="py-20 bg-gradient-to-r from-primary to-accent relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Want to Be Our Next Success Story?</h2>
-                    <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl md:text-4xl font-black text-white mb-4"
+                    >
+                        Want to Be Our Next Success Story?
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+                    >
                         Let's discuss your project and create something amazing together.
-                    </p>
-                    <a
+                    </motion.p>
+                    <motion.a
                         href="/contact"
-                        className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-xl hover:-translate-y-1"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg"
                     >
                         Start Your Project
                         <ExternalLink className="w-5 h-5 ml-2" />
-                    </a>
+                    </motion.a>
                 </div>
             </section>
         </div>

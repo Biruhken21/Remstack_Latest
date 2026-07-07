@@ -24,7 +24,7 @@ const ThankYou = () => {
                 <div className="flex flex-col space-y-4 pt-4">
                     <Link
                         to="/products"
-                        className="w-full py-4 bg-primary text-white rounded-2xl font-bold hover:bg-primary-dark transition-all flex items-center justify-center space-x-2"
+                        className="w-full py-4 bg-gradient-to-r from-primary to-accent text-white rounded-2xl font-bold hover:from-primary-dark hover:to-accent-light transition-all flex items-center justify-center space-x-2"
                     >
                         <ShoppingBag className="w-5 h-5" />
                         <span>Continue Shopping</span>

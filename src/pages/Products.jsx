@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import OrderModal from '../components/OrderModal';
 import { Filter, SlidersHorizontal, Search as SearchIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import SEO from '../components/SEO';
@@ -17,20 +16,23 @@ const Products = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const categories = ['All', 'Paper Bags', 'Cloth Bags', 'Raw Materials', 'Machinery'];
+    const categories = useMemo(
+        () => ['All', 'Paper Bags', 'Cloth Bags', 'Raw Materials', 'Machinery'],
+        []
+    );
 
-    useEffect(() => {
+    const queryCategory = useMemo(() => {
         const params = new URLSearchParams(location.search);
         const catParam = params.get('category');
-        if (catParam) {
-            const decoded = catParam.replace(/-/g, ' ');
-            const match = categories.find(c => c.toLowerCase() === decoded.toLowerCase());
-            if (match) setSelectedCategory(match);
-        }
-    }, [location]);
+        if (!catParam) return null;
+        const decoded = catParam.replace(/-/g, ' ');
+        return categories.find(c => c.toLowerCase() === decoded.toLowerCase()) || null;
+    }, [location.search, categories]);
+
+    const currentCategory = queryCategory || selectedCategory;
 
     const filteredProducts = products.filter(p => {
-        const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+        const matchesCategory = currentCategory === 'All' || p.category === currentCategory;
         const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             p.description.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
@@ -117,7 +119,7 @@ const Products = () => {
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
                                 className={`px-5 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all ${selectedCategory === cat
-                                    ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg'
                                     : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
                                     }`}
                             >

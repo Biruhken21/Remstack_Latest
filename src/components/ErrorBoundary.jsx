@@ -6,7 +6,7 @@ class ErrorBoundary extends React.Component {
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error) {
+    static getDerivedStateFromError(_error) {
         return { hasError: true };
     }
 
@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <button
                                 onClick={() => window.location.reload()}
-                                className="px-8 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary-dark transition-all shadow-lg"
+                                className="px-8 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-bold hover:from-primary-dark hover:to-accent-light transition-all shadow-lg"
                             >
                                 Refresh Page
                             </button>

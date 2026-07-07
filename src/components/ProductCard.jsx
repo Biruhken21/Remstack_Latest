@@ -47,7 +47,7 @@ const ProductCard = ({ product, onOrder }) => {
                                 e.preventDefault();
                                 onOrder(product);
                             }}
-                            className="flex items-center space-x-1.5 bg-primary text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-primary-dark transition-all shadow-md shadow-primary/10 active:scale-95"
+                            className="flex items-center space-x-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:from-primary-dark hover:to-accent-light transition-all shadow-md active:scale-95"
                         >
                             <ShoppingCart className="w-3 h-3" />
                             <span>{t(translations, 'products.orderNow')}</span>

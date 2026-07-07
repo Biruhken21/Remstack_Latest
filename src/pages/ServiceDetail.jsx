@@ -1,10 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Check, Code, Smartphone, Globe, Rocket, Palette, BarChart } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield } from 'lucide-react';
 import SEO from '../components/SEO';
-import { useLanguage } from '../context/LanguageContext';
-import { translations } from '../data/translations';
 
 const serviceData = {
     'custom-software': {
@@ -94,91 +91,91 @@ const serviceData = {
             { step: 'Launch', desc: 'Deployment and monitoring' }
         ]
     },
-    'startup-consulting': {
-        icon: Rocket,
-        title: 'Startup Consulting',
-        subtitle: 'Strategic Guidance from MVP to Scale',
-        description: 'Navigate the startup journey with expert tech consulting. We help startups validate ideas, build MVPs, and scale efficiently with the right technology choices and development strategies.',
-        image: '/service-startup-consulting.png',
+    'cloud-solutions': {
+        icon: Cloud,
+        title: 'Cloud Solutions',
+        subtitle: 'Scalable Cloud Infrastructure & Migration',
+        description: 'Leverage the power of cloud computing with our comprehensive cloud services. We help businesses migrate to the cloud, optimize infrastructure, and build scalable cloud-native applications on AWS, Azure, and GCP.',
+        image: '/service-cloud-solutions.png',
         features: [
-            'Tech Stack Recommendations',
-            'MVP Development Strategy',
-            'Product-Market Fit Analysis',
-            'Scalability Planning',
-            'Team Building & Hiring Guidance',
-            'Investor Pitch Deck Review'
+            'Cloud Migration Strategy & Implementation',
+            'AWS, Azure & GCP Architecture Design',
+            'Serverless Application Development',
+            'Cloud Security & Compliance',
+            'Cost Optimization & Monitoring',
+            'Disaster Recovery & Backup Solutions'
         ],
         benefits: [
-            'Avoid costly technical mistakes',
+            'Reduce infrastructure costs by up to 40%',
+            'Auto-scaling for high availability',
+            'Enhanced security and compliance',
+            'Pay-as-you-go pricing model'
+        ],
+        process: [
+            { step: 'Assessment', desc: 'Evaluate current infrastructure and requirements' },
+            { step: 'Strategy', desc: 'Design cloud architecture and migration plan' },
+            { step: 'Migration', desc: 'Execute migration with minimal downtime' },
+            { step: 'Optimization', desc: 'Fine-tune performance and costs' },
+            { step: 'Security', desc: 'Implement security best practices' },
+            { step: 'Monitoring', desc: 'Set up monitoring and alerting systems' }
+        ]
+    },
+    'devops-services': {
+        icon: Server,
+        title: 'DevOps Services',
+        subtitle: 'Streamline Development with Automation',
+        description: 'Accelerate your development lifecycle with our DevOps expertise. We implement CI/CD pipelines, infrastructure as code, and automation tools to improve deployment frequency and system reliability.',
+        image: '/service-devops.png',
+        features: [
+            'CI/CD Pipeline Implementation',
+            'Infrastructure as Code (Terraform, CloudFormation)',
+            'Containerization with Docker & Kubernetes',
+            'Automated Testing & Deployment',
+            'Monitoring & Logging Solutions',
+            'Version Control & Collaboration Tools'
+        ],
+        benefits: [
             'Faster time to market',
-            'Expert guidance on technology decisions',
-            'Access to development best practices'
+            'Reduced deployment failures',
+            'Improved team collaboration',
+            'Automated repetitive tasks'
         ],
         process: [
-            { step: 'Assessment', desc: 'Evaluate your current stage and goals' },
-            { step: 'Strategy', desc: 'Define roadmap and milestones' },
-            { step: 'Planning', desc: 'Tech stack and architecture planning' },
-            { step: 'Execution', desc: 'Build MVP or improve existing product' },
-            { step: 'Growth', desc: 'Scale infrastructure and team' },
-            { step: 'Optimization', desc: 'Continuous improvement' }
+            { step: 'Analysis', desc: 'Assess current development workflow' },
+            { step: 'Design', desc: 'Design DevOps architecture and tools' },
+            { step: 'Implementation', desc: 'Set up CI/CD pipelines and automation' },
+            { step: 'Testing', desc: 'Test automation and deployment workflows' },
+            { step: 'Training', desc: 'Train teams on new processes' },
+            { step: 'Optimization', desc: 'Continuous improvement and scaling' }
         ]
     },
-    'graphics-design': {
-        icon: Palette,
-        title: 'Graphics Solution',
-        subtitle: 'Visual Identity & Creative Design',
-        description: 'Create stunning visual assets that make your brand memorable. From logo design to complete brand identities, we deliver creative solutions that resonate with your audience.',
-        image: '/service-web-dev.png', // Placeholder
+    'cybersecurity': {
+        icon: Shield,
+        title: 'Cybersecurity',
+        subtitle: 'Comprehensive Security Solutions',
+        description: 'Protect your business from evolving cyber threats with our comprehensive security services. We provide security audits, penetration testing, and robust security architecture to safeguard your digital assets.',
+        image: '/service-cybersecurity.png',
         features: [
-            'Logo Design & Branding',
-            'UI/UX Design for Web & Mobile',
-            'Marketing Collateral Design',
-            'Social Media Graphics',
-            'Infographics & Presentations',
-            'Print Design'
+            'Security Audits & Vulnerability Assessment',
+            'Penetration Testing & Ethical Hacking',
+            'Security Architecture Design',
+            'Incident Response & Recovery',
+            'Compliance & Regulatory Standards',
+            'Security Training & Awareness'
         ],
         benefits: [
-            'Professional brand identity',
-            'Consistent visual language',
-            'High-quality design assets',
-            'Brand guidelines documentation'
+            'Protect sensitive data and systems',
+            'Prevent costly security breaches',
+            'Ensure regulatory compliance',
+            'Build customer trust and confidence'
         ],
         process: [
-            { step: 'Brief', desc: 'Understand your brand and vision' },
-            { step: 'Research', desc: 'Market and competitor analysis' },
-            { step: 'Concepts', desc: 'Create multiple design directions' },
-            { step: 'Refinement', desc: 'Iterate based on feedback' },
-            { step: 'Delivery', desc: 'Final files in all formats' },
-            { step: 'Guidelines', desc: 'Brand usage documentation' }
-        ]
-    },
-    'digital-marketing': {
-        icon: BarChart,
-        title: 'Digital Marketing',
-        subtitle: 'Data-Driven Marketing That Delivers Results',
-        description: 'Grow your online presence and convert leads into customers with strategic digital marketing. We combine SEO, social media, content marketing, and paid advertising for maximum ROI.',
-        image: '/service-custom-software.png', // Placeholder
-        features: [
-            'Search Engine Optimization (SEO)',
-            'Social Media Marketing',
-            'Content Marketing Strategy',
-            'Pay-Per-Click (PPC) Advertising',
-            'Email Marketing Campaigns',
-            'Analytics & Reporting'
-        ],
-        benefits: [
-            'Increased brand visibility',
-            'Higher conversion rates',
-            'Measurable ROI',
-            'Targeted audience reach'
-        ],
-        process: [
-            { step: 'Audit', desc: 'Analyze current digital presence' },
-            { step: 'Strategy', desc: 'Define goals and channels' },
-            { step: 'Setup', desc: 'Implement tracking and tools' },
-            { step: 'Campaign', desc: 'Launch marketing campaigns' },
-            { step: 'Optimize', desc: 'A/B testing and refinement' },
-            { step: 'Report', desc: 'Monthly performance reviews' }
+            { step: 'Assessment', desc: 'Identify security gaps and vulnerabilities' },
+            { step: 'Planning', desc: 'Develop security strategy and roadmap' },
+            { step: 'Implementation', desc: 'Deploy security tools and protocols' },
+            { step: 'Testing', desc: 'Conduct penetration testing and audits' },
+            { step: 'Training', desc: 'Train staff on security best practices' },
+            { step: 'Monitoring', desc: 'Continuous security monitoring and updates' }
         ]
     }
 };
@@ -199,14 +196,14 @@ const ServiceDetail = () => {
     const Icon = service.icon;
 
     return (
-        <div className="pt-24 pb-16 bg-white">
+        <div className="pt-24 pb-16 bg-[#ffffff]">
             <SEO
                 title={`${service.title} - RemStack Technologies`}
                 description={service.description}
                 ogImage={service.image}
             />
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-gray-50 to-white py-20 overflow-hidden">
+            <section className="relative bg-[#ffffff] py-20 overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <Link to="/" className="inline-flex items-center text-primary hover:text-primary-dark mb-8 transition-colors font-medium">
@@ -228,7 +225,7 @@ const ServiceDetail = () => {
                             <p className="text-lg text-gray-600 leading-relaxed mb-8">{service.description}</p>
                             <Link
                                 to="/contact"
-                                className="inline-block px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                                className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-full font-bold hover:from-primary-dark hover:to-accent-light transition-all shadow-lg"
                             >
                                 Get Started
                             </Link>
@@ -249,7 +246,7 @@ const ServiceDetail = () => {
             </section>
 
             {/* Features Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">What We Offer</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -260,7 +257,7 @@ const ServiceDetail = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all"
+                                className="flex items-start gap-4 bg-[#f0f0f0] p-6 rounded-xl shadow-sm hover:shadow-md transition-all"
                             >
                                 <Check className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                                 <span className="text-gray-700 font-medium">{feature}</span>
@@ -271,7 +268,7 @@ const ServiceDetail = () => {
             </section>
 
             {/* Benefits Section */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Key Benefits</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -281,7 +278,7 @@ const ServiceDetail = () => {
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="bg-gray-50 p-8 rounded-2xl border border-gray-100"
+                                className="bg-[#f0f0f0] p-8 rounded-2xl border border-gray-100"
                             >
                                 <div className="flex items-start gap-4">
                                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
@@ -294,7 +291,7 @@ const ServiceDetail = () => {
             </section>
 
             {/* Process Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Process</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -305,7 +302,7 @@ const ServiceDetail = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group"
+                                className="relative bg-[#f0f0f0] p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group"
                             >
                                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                                     {index + 1}
@@ -327,7 +324,7 @@ const ServiceDetail = () => {
                     </p>
                     <Link
                         to="/contact"
-                        className="inline-block px-10 py-5 bg-white text-primary rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:-translate-y-1"
+                        className="inline-block px-10 py-5 bg-white text-primary rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl"
                     >
                         Contact Us Today
                     </Link>

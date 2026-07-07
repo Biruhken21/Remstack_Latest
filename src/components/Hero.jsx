@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Rocket, Globe, CheckCircle, Layers, Database, Cloud } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -42,12 +42,17 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-blue-900/20 pt-20 pb-16">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16">
+            {/* Background Image */}
+            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/homepageback.png)' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-gray-50/90 dark:from-gray-900/90 dark:via-[#0f172a]/85 dark:to-blue-900/90"></div>
+            </div>
+            
             {/* Background Decorations */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-grid opacity-50"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-grid opacity-30"></div>
 
                 {/* Floating Elements */}
                 {floatingIcons.map((item, index) => (
@@ -84,7 +89,7 @@ const Hero = () => {
                         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
                             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                             <span className="text-primary font-semibold text-sm tracking-wide">
-                                Transforming Ideas into Digital Reality
+                                Remote Software Development Team
                             </span>
                         </motion.div>
 
@@ -93,13 +98,13 @@ const Hero = () => {
                         </motion.h1>
 
                         <motion.p variants={itemVariants} className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                            From web apps to mobile solutions, we craft innovative software that drives growth and transforms businesses across Ethiopia and beyond.
+                            Your trusted remote team for IT and software solutions. We deliver outsourced projects with excellence, connecting global businesses with top-tier talent.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link
                                 to="/#services"
-                                className="px-8 py-4 bg-primary text-white rounded-xl font-semibold text-base hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                                className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-semibold text-base hover:from-primary-dark hover:to-accent-light transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
                             >
                                 Our Services
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
