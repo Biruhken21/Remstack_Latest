@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 
 const projects = [
     {
-        title: 'E-Commerce Platform',
+        title: 'KesewEj E-Commerce Platform',
         category: 'Web Development',
         description: 'A full-featured e-commerce platform with real-time inventory management, payment integration, and admin dashboard.',
         image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
@@ -14,11 +14,11 @@ const projects = [
         color: 'bg-blue-100 text-blue-600'
     },
     {
-        title: 'Ride-Hailing Mobile App',
+        title: 'Hymn Mobile App',
         category: 'Mobile App',
         description: 'Cross-platform ride-hailing application with real-time tracking, fare estimation, and driver management.',
         image: 'https://images.unsplash.com/photo-1544654803-b69140b285a1?w=600&h=400&fit=crop',
-        tags: ['Flutter', 'Firebase', 'Google Maps API'],
+        tags: ['Flutter', 'laravel', 'Google Maps API'],
         icon: Smartphone,
         color: 'bg-purple-100 text-purple-600'
     },

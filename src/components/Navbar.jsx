@@ -74,7 +74,6 @@ const Navbar = () => {
     const navLinks = [
         { label: 'Home', path: '/', onClick: handleHomeClick },
         { label: 'About', path: '/about' },
-        { label: 'Services', path: '/#services', onClick: handleServicesClick },
         { label: 'Portfolio', path: '/portfolio' },
         { label: 'Teams', path: '/#team', onClick: handleTeamsClick },
     ];

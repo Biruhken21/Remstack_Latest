@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield } from 'lucide-react';
+import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera } from 'lucide-react';
+import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
 const serviceData = {
@@ -96,7 +97,7 @@ const serviceData = {
         title: 'Cloud Solutions',
         subtitle: 'Scalable Cloud Infrastructure & Migration',
         description: 'Leverage the power of cloud computing with our comprehensive cloud services. We help businesses migrate to the cloud, optimize infrastructure, and build scalable cloud-native applications on AWS, Azure, and GCP.',
-        image: '/service-cloud-solutions.png',
+        image: '/servicesandothers.png',
         features: [
             'Cloud Migration Strategy & Implementation',
             'AWS, Azure & GCP Architecture Design',
@@ -125,7 +126,7 @@ const serviceData = {
         title: 'DevOps Services',
         subtitle: 'Streamline Development with Automation',
         description: 'Accelerate your development lifecycle with our DevOps expertise. We implement CI/CD pipelines, infrastructure as code, and automation tools to improve deployment frequency and system reliability.',
-        image: '/service-devops.png',
+        image: '/servicesandothers.png',
         features: [
             'CI/CD Pipeline Implementation',
             'Infrastructure as Code (Terraform, CloudFormation)',
@@ -154,7 +155,7 @@ const serviceData = {
         title: 'Cybersecurity',
         subtitle: 'Comprehensive Security Solutions',
         description: 'Protect your business from evolving cyber threats with our comprehensive security services. We provide security audits, penetration testing, and robust security architecture to safeguard your digital assets.',
-        image: '/service-cybersecurity.png',
+        image: '/servicesandothers.png',
         features: [
             'Security Audits & Vulnerability Assessment',
             'Penetration Testing & Ethical Hacking',
@@ -177,6 +178,93 @@ const serviceData = {
             { step: 'Training', desc: 'Train staff on security best practices' },
             { step: 'Monitoring', desc: 'Continuous security monitoring and updates' }
         ]
+    },
+    'server-installation': {
+        icon: HardDrive,
+        title: 'Server Installation & Setup',
+        subtitle: 'Professional Server Deployment & Configuration',
+        description: 'Get your infrastructure up and running with our professional server installation services. We handle everything from hardware setup to software configuration for on-premise and cloud environments.',
+        image: '/servicesandothers.png',
+        features: [
+            'Physical Server Installation & Rack Mounting',
+            'Operating System Installation & Configuration',
+            'Network Setup & Security Configuration',
+            'Virtualization Setup (VMware, Hyper-V)',
+            'Database Server Installation & Tuning',
+            'Backup & Disaster Recovery Setup'
+        ],
+        benefits: [
+            'Professional setup by certified engineers',
+            'Optimized performance from day one',
+            'Secure configuration following best practices',
+            'Ongoing monitoring and maintenance support'
+        ],
+        process: [
+            { step: 'Assessment', desc: 'Evaluate infrastructure requirements and specifications' },
+            { step: 'Planning', desc: 'Design server architecture and configuration plan' },
+            { step: 'Installation', desc: 'Physical/virtual server setup and configuration' },
+            { step: 'Testing', desc: 'Validate performance and security measures' },
+            { step: 'Deployment', desc: 'Go-live with full system monitoring' },
+            { step: 'Support', desc: 'Ongoing maintenance and optimization' }
+        ]
+    },
+    'data-migration': {
+        icon: Database,
+        title: 'Data Migration Services',
+        subtitle: 'Seamless Data Migration with Zero Data Loss',
+        description: 'Migrate your data between systems with confidence. Our data migration services ensure zero data loss, minimal downtime, and complete data integrity throughout the entire migration process.',
+        image: '/servicesandothers.png',
+        features: [
+            'Database Migration (SQL, NoSQL, Legacy Systems)',
+            'Cloud-to-Cloud Data Migration',
+            'On-Premise to Cloud Migration',
+            'Data Cleansing & Validation',
+            'ETL Pipeline Development',
+            'Post-Migration Verification & Testing'
+        ],
+        benefits: [
+            'Zero data loss guarantee',
+            'Minimal system downtime',
+            'Complete data integrity verification',
+            'Comprehensive rollback planning'
+        ],
+        process: [
+            { step: 'Discovery', desc: 'Analyze source data and target environment' },
+            { step: 'Mapping', desc: 'Create detailed data mapping and transformation rules' },
+            { step: 'Testing', desc: 'Run pilot migration with validation' },
+            { step: 'Migration', desc: 'Execute full data migration' },
+            { step: 'Verification', desc: 'Validate data integrity and completeness' },
+            { step: 'Cutover', desc: 'Switch to new system with monitoring' }
+        ]
+    },
+    'cctv-installation': {
+        icon: Camera,
+        title: 'CCTV Installation',
+        subtitle: 'Complete Surveillance & Security Systems',
+        description: 'Protect your property with professional CCTV installation services. We provide end-to-end surveillance solutions including HD cameras, NVR/DVR setup, remote monitoring, and maintenance support.',
+        image: '/servicesandothers.png',
+        features: [
+            'HD & 4K Camera Installation',
+            'NVR & DVR System Setup',
+            'IP Camera Configuration',
+            'Remote Viewing & Mobile Access Setup',
+            'Motion Detection & Alert Systems',
+            '24/7 Monitoring & Maintenance'
+        ],
+        benefits: [
+            'Enhanced security and peace of mind',
+            'Remote monitoring from anywhere',
+            'High-quality video evidence',
+            'Scalable system that grows with your needs'
+        ],
+        process: [
+            { step: 'Assessment', desc: 'Evaluate site and security requirements' },
+            { step: 'Design', desc: 'Design camera placement and system architecture' },
+            { step: 'Installation', desc: 'Professional installation and wiring' },
+            { step: 'Configuration', desc: 'System setup and network integration' },
+            { step: 'Testing', desc: 'Test all cameras and remote access' },
+            { step: 'Training', desc: 'Train staff on system operation' }
+        ]
     }
 };
 
@@ -188,7 +276,8 @@ const ServiceDetail = () => {
         return (
             <div className="pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto text-center">
                 <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
-                <Link to="/" className="text-primary hover:text-primary-dark">Back to Home</Link>
+                <p className="text-gray-600 mb-6">The service you're looking for doesn't exist.</p>
+                <Link to="/" className="text-primary hover:text-primary-dark font-medium">Back to Home</Link>
             </div>
         );
     }
@@ -238,7 +327,20 @@ const ServiceDetail = () => {
                             className="relative"
                         >
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                                <img src={service.image} alt={service.title} className="w-full h-auto" loading="lazy" />
+                                <img 
+                                    src={service.image} 
+                                    alt={service.title} 
+                                    className="w-full h-auto" 
+                                    loading="lazy"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.parentElement.classList.add('bg-gradient-to-br', 'from-primary/10', 'to-accent/10', 'p-12', 'flex', 'items-center', 'justify-center', 'min-h-[300px]');
+                                        const fallback = document.createElement('div');
+                                        fallback.className = 'text-center';
+                                        fallback.innerHTML = `<div class="w-20 h-20 mx-auto bg-primary/20 rounded-2xl flex items-center justify-center mb-4"><svg class="w-10 h-10 text-primary" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-gray-800">${service.title}</h3>`;
+                                        e.target.parentElement.appendChild(fallback);
+                                    }}
+                                />
                             </div>
                         </motion.div>
                     </div>
