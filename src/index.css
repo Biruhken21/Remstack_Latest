@@ -19,6 +19,20 @@
   background-color: #f8fafc;
   color: #1e293b;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Mobile-first font sizes */
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 html.dark {
@@ -39,6 +53,8 @@ body {
   position: relative;
   scroll-behavior: smooth;
   background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html.dark body {
@@ -85,9 +101,9 @@ html.dark .glass {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
 }
 
-/* Card hover effect - minimized */
+/* Card hover effect */
 .card-hover {
-  @apply transition-shadow duration-200 hover:shadow-lg;
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
 }
 
 /* Section divider */
@@ -173,6 +189,26 @@ html.dark .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4); }
   animation: slideUpFade 0.6s ease-out forwards;
 }
 
+/* Stagger animation for children */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-stagger > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.animate-stagger > *:nth-child(6) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(7) { animation-delay: 0.35s; }
+.animate-stagger > *:nth-child(8) { animation-delay: 0.4s; }
+
 /* Tech stack scroll */
 @keyframes scroll-tech {
   0% { transform: translateX(0); }
@@ -209,4 +245,14 @@ html.dark .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4); }
 
 .animate-scroll-partners:hover {
   animation-play-state: paused;
+}
+
+/* Mobile-first soft shadow utility */
+.mobile-card {
+  @apply bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm;
+}
+
+/* Background image brightness overlay for mobile - lighter to show images */
+.bg-overlay-light {
+  @apply absolute inset-0 bg-gradient-to-br from-white/60 via-white/50 to-gray-50/60 dark:from-gray-900/60 dark:via-[#0f172a]/50 dark:to-blue-900/60;
 }

@@ -33,15 +33,15 @@ const FAQSection = () => {
     const [openFaq, setOpenFaq] = useState(null);
 
     return (
-        <section className="py-24 bg-white dark:bg-[#1a2332] relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-white dark:bg-[#1a2332] relative overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-30"></div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         FAQ
                     </motion.span>
@@ -49,7 +49,7 @@ const FAQSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary dark:text-white mb-4"
                     >
                         Frequently Asked <span className="gradient-text">Questions</span>
                     </motion.h2>
@@ -58,7 +58,7 @@ const FAQSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-lg text-gray-500 dark:text-gray-400"
+                        className="text-sm md:text-lg text-gray-500 dark:text-gray-400 px-2"
                     >
                         Everything you need to know about working with our remote team.
                     </motion.p>
@@ -71,7 +71,7 @@ const FAQSection = () => {
                     ></motion.div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                     {faqs.map((faq, i) => (
                         <motion.div
                             key={i}
@@ -83,10 +83,10 @@ const FAQSection = () => {
                         >
                             <button
                                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                className="w-full flex items-center justify-between p-4 text-left"
+                                className="w-full flex items-center justify-between p-3 md:p-4 text-left"
                             >
-                                <span className="font-medium text-sm text-secondary dark:text-white pr-4">{faq.q}</span>
-                                <ChevronDown className={`w-4 h-4 text-primary shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                                <span className="font-medium text-xs md:text-sm text-secondary dark:text-white pr-4">{faq.q}</span>
+                                <ChevronDown className={`w-3.5 h-3.5 md:w-4 md:h-4 text-primary shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                             </button>
                             <AnimatePresence>
                                 {openFaq === i && (
@@ -97,7 +97,7 @@ const FAQSection = () => {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="px-4 pb-4 text-xs text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-200 dark:border-gray-700">{faq.a}</p>
+                                        <p className="px-3 md:px-4 pb-3 md:pb-4 text-xs text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-200 dark:border-gray-700 pt-3">{faq.a}</p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

@@ -12,15 +12,15 @@ const processes = [
 
 const ProcessSection = () => {
     return (
-        <section id="process" className="py-24 bg-gray-50/30 dark:bg-[#0f172a]/30 relative overflow-hidden">
+        <section id="process" className="py-16 md:py-24 bg-gray-50/30 dark:bg-[#0f172a]/30 relative overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         How We Work
                     </motion.span>
@@ -28,7 +28,7 @@ const ProcessSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary dark:text-white mb-4"
                     >
                         Our Integrated Process
                     </motion.h2>
@@ -37,7 +37,7 @@ const ProcessSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+                        className="text-sm md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-2"
                     >
                         A streamlined approach from concept to launch, ensuring quality at every step.
                     </motion.p>
@@ -50,12 +50,15 @@ const ProcessSection = () => {
                     ></motion.div>
                 </div>
 
-                {/* Process Timeline */}
+                {/* Mobile: Vertical Timeline | Desktop: Horizontal 5-column */}
                 <div className="relative">
-                    {/* Connection line - desktop */}
+                    {/* Desktop connection line */}
                     <div className="hidden lg:block absolute top-24 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    {/* Mobile vertical timeline line */}
+                    <div className="lg:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary"></div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8">
                         {processes.map((process, i) => (
                             <motion.div
                                 key={i}
@@ -63,25 +66,28 @@ const ProcessSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ delay: i * 0.15 }}
-                                className="relative text-center group"
+                                className="relative text-center group pl-14 lg:pl-0"
                             >
-                                {/* Desktop step number circle */}
+                                {/* Vertical timeline dot (mobile) */}
+                                <div className="lg:hidden absolute left-4 top-6 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-900 shadow-sm z-10 -translate-x-1/2"></div>
+
+                                {/* Desktop step number */}
                                 <div className="hidden lg:flex absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white items-center justify-center text-sm font-bold shadow-lg z-10">
                                     {process.step}
                                 </div>
 
-                                <div className={`bg-gradient-to-br ${process.color} p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                    <process.icon className="w-8 h-8 text-white" />
-                                </div>
-
-                                <h3 className="text-lg font-bold text-secondary dark:text-white mb-3">{process.title}</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{process.desc}</p>
-
-                                {/* Mobile step indicator */}
-                                <div className="lg:hidden mt-4 flex items-center justify-center gap-2">
-                                    <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                                        Step {process.step}
-                                    </span>
+                                <div className="flex items-start lg:block">
+                                    <div className={`bg-gradient-to-br ${process.color} p-3 md:p-4 rounded-2xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                                        <process.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                                    </div>
+                                    <div className="text-left lg:text-center ml-4 lg:ml-0 lg:mt-6">
+                                        <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-3">{process.title}</h3>
+                                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{process.desc}</p>
+                                        {/* Step badge mobile */}
+                                        <span className="inline-block lg:hidden mt-2 text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                                            Step {process.step}
+                                        </span>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}

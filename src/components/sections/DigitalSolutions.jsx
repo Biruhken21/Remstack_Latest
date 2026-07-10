@@ -13,14 +13,14 @@ const solutions = [
 
 const DigitalSolutions = () => {
     return (
-        <section className="py-24 bg-gray-50/50 dark:bg-[#0f172a]/50 relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-gray-50/50 dark:bg-[#0f172a]/50 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         Solutions
                     </motion.span>
@@ -29,7 +29,7 @@ const DigitalSolutions = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary dark:text-white mb-4 px-2"
                     >
                         What Digital Solutions Does <span className="gradient-text">Your Business</span> Need?
                     </motion.h2>
@@ -38,7 +38,7 @@ const DigitalSolutions = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+                        className="text-sm md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-2"
                     >
                         From web apps to AI-powered analytics, we deliver end-to-end digital solutions tailored to your business.
                     </motion.p>
@@ -51,7 +51,7 @@ const DigitalSolutions = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {solutions.map((solution, i) => (
                         <motion.div
                             key={i}
@@ -59,13 +59,13 @@ const DigitalSolutions = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
-                            className="bg-white dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 p-6 rounded-xl shadow-md hover:border-primary hover:shadow-lg transition-all"
+                            className="bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 p-5 md:p-6 rounded-xl shadow-sm hover:border-primary hover:shadow-md transition-all"
                         >
-                            <div className={`w-14 h-14 ${solution.color} rounded-xl flex items-center justify-center mb-4 shadow-md`}>
-                                <solution.icon className="w-7 h-7" />
+                            <div className={`w-10 h-10 md:w-14 md:h-14 ${solution.color} rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-md`}>
+                                <solution.icon className="w-5 h-5 md:w-7 md:h-7" />
                             </div>
-                            <h3 className="text-lg font-bold text-secondary dark:text-white mb-2">{solution.title}</h3>
-                            <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed font-medium">{solution.desc}</p>
+                            <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2">{solution.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed font-medium">{solution.desc}</p>
                         </motion.div>
                     ))}
                 </div>

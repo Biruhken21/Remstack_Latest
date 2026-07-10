@@ -11,14 +11,14 @@ const partners = [
 
 const Partners = () => {
     return (
-        <section className="py-16 bg-white dark:bg-[#1a2332] relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white dark:bg-[#1a2332] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-12">
+                <div className="text-center mb-8 md:mb-12">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         Trusted By
                     </motion.span>
@@ -27,7 +27,7 @@ const Partners = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-4xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl font-black text-secondary dark:text-white mb-4"
                     >
                         Our Partners & Clients
                     </motion.h2>
@@ -43,22 +43,22 @@ const Partners = () => {
                 {/* Partners Infinite Scroll */}
                 <div className="relative">
                     {/* Fade edges */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-[#1a2332] to-transparent z-10"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-[#1a2332] to-transparent z-10"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-[#1a2332] to-transparent z-10"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-[#1a2332] to-transparent z-10"></div>
                     
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="flex animate-scroll-partners gap-8"
+                        className="flex animate-scroll-partners gap-4 md:gap-8"
                     >
                         {[...partners, ...partners].map((partner, index) => (
                             <div
                                 key={index}
-                                className="flex items-center justify-center min-w-[180px] h-24 group cursor-pointer"
+                                className="flex items-center justify-center min-w-[120px] md:min-w-[180px] h-16 md:h-24 group cursor-pointer"
                             >
-                                <div className="w-24 h-24 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-4 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+                                <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-2 md:p-4 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
                                     <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-10`}></div>
                                     <img
                                         src={partner.logo}
@@ -68,7 +68,7 @@ const Partners = () => {
                                             e.target.style.display = 'none';
                                             const parent = e.target.parentElement;
                                             const placeholder = document.createElement('div');
-                                            placeholder.className = 'w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm relative z-10';
+                                            placeholder.className = 'w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs md:text-sm relative z-10';
                                             placeholder.textContent = partner.initials;
                                             parent.appendChild(placeholder);
                                         }}
@@ -85,9 +85,9 @@ const Partners = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 text-center"
+                    className="mt-8 md:mt-12 text-center"
                 >
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm">
                         Trusted by leading Ethiopian businesses and tech innovators
                     </p>
                 </motion.div>

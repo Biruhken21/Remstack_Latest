@@ -113,7 +113,7 @@ const Portfolio = () => {
             />
             
             {/* Header Section */}
-            <section className="relative py-20 bg-gradient-to-b from-secondary to-secondary/95 dark:from-[#0a0f1a] dark:to-[#0f172a] overflow-hidden">
+            <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-b from-secondary to-secondary/95 dark:from-[#0a0f1a] dark:to-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
@@ -122,7 +122,7 @@ const Portfolio = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-black text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 sm:mb-4"
                     >
                         Our <span className="gradient-text">Portfolio</span>
                     </motion.h1>
@@ -130,7 +130,7 @@ const Portfolio = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed"
+                        className="text-white/70 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed px-2"
                     >
                         Showcasing our best work. Each project represents a unique challenge and a tailored solution.
                     </motion.p>
@@ -139,14 +139,14 @@ const Portfolio = () => {
 
             {/* Filter Tabs - White Background */}
             {/* Section bg: WHITE (#FFFFFF) → Box/Tab bg: GREY (#E5E7EB) */}
-            <section className="py-8 bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
+            <section className="py-6 sm:py-8 bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-wrap justify-center gap-3">
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
                         {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+                                className={`px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                                     activeCategory === cat
                                         ? 'bg-gradient-to-r from-primary to-accent text-white shadow-md'
                                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -161,11 +161,11 @@ const Portfolio = () => {
 
             {/* Projects Grid - Grey Background */}
             {/* Section bg: GREY (#E5E7EB) → Card bg: WHITE (#FFFFFF) */}
-            <section className="py-20 bg-gray-200 relative">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-200 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <motion.div 
                         layout
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8"
                     >
                         {filteredProjects.map((project, i) => (
                             <motion.div
@@ -174,37 +174,37 @@ const Portfolio = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-white rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-primary hover:shadow-xl transition-all group"
+                                className="bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-primary hover:shadow-xl transition-all group"
                             >
-                                <div className="relative overflow-hidden h-56">
+                                <div className="relative overflow-hidden h-40 sm:h-48 md:h-56">
                                     <img
                                         src={project.image}
                                         alt={project.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-5">
                                         <div className="flex gap-2">
-                                            <button className="p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
-                                                <ExternalLink className="w-4 h-4" />
+                                            <button className="p-2 sm:p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
+                                                <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                             </button>
-                                            <button className="p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
-                                                <Github className="w-4 h-4" />
+                                            <button className="p-2 sm:p-2.5 bg-white rounded-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
+                                                <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-6">
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <div className={`w-10 h-10 ${project.color} rounded-lg flex items-center justify-center`}>
-                                            <project.icon className="w-5 h-5" />
+                                <div className="p-4 sm:p-5 md:p-6">
+                                    <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                                        <div className={`w-8 sm:w-10 h-8 sm:h-10 ${project.color} rounded-lg flex items-center justify-center`}>
+                                            <project.icon className="w-4 sm:w-5 h-4 sm:h-5" />
                                         </div>
                                         <span className="text-xs font-bold text-primary uppercase tracking-wider">{project.category}</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-secondary mb-2">{project.title}</h3>
-                                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-secondary mb-1.5 sm:mb-2">{project.title}</h3>
+                                    <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">{project.description}</p>
+                                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                         {project.tags.map((tag, j) => (
-                                            <span key={j} className="px-3 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-md">
+                                            <span key={j} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-primary/10 text-primary text-[10px] sm:text-xs font-semibold rounded-md">
                                                 {tag}
                                             </span>
                                         ))}
@@ -217,14 +217,14 @@ const Portfolio = () => {
             </section>
 
             {/* CTA Section - Gradient */}
-            <section className="py-20 bg-gradient-to-r from-primary to-accent relative overflow-hidden">
+            <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary to-accent relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-black text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 sm:mb-4"
                     >
                         Want to Be Our Next Success Story?
                     </motion.h2>
@@ -233,7 +233,7 @@ const Portfolio = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+                        className="text-white/90 text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto px-2"
                     >
                         Let's discuss your project and create something amazing together.
                     </motion.p>

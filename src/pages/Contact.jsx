@@ -63,41 +63,41 @@ const Contact = () => {
                 </div>
             </div>
 
-            <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 -mt-32 relative z-20">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-24 -mt-16 sm:-mt-24 md:-mt-32 relative z-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {/* Contact Form */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white border-2 border-gray-200 p-8 md:p-10 rounded-2xl shadow-lg">
-                            <div className="mb-8">
-                                <h2 className="text-2xl font-black text-secondary mb-2">{t(translations, 'contact.formTitle')}</h2>
-                                <p className="text-gray-500 text-sm">{t(translations, 'contact.formSubtitle')}</p>
+                        <div className="bg-white border-2 border-gray-200 p-5 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl shadow-lg">
+                            <div className="mb-6 md:mb-8">
+                                <h2 className="text-lg sm:text-xl md:text-2xl font-black text-secondary mb-1.5 md:mb-2">{t(translations, 'contact.formTitle')}</h2>
+                                <p className="text-gray-500 text-xs sm:text-sm">{t(translations, 'contact.formSubtitle')}</p>
                             </div>
 
-                            <form action="https://formsubmit.co/remstackinfo@gmail.com" method="POST" className="space-y-5">
+                            <form action="https://formsubmit.co/remstackinfo@gmail.com" method="POST" className="space-y-4 sm:space-y-5">
                                 <input type="hidden" name="_subject" value="New Business Inquiry from Website" />
                                 <input type="hidden" name="_template" value="table" />
                                 <input type="hidden" name="_captcha" value="false" />
                                 <input type="hidden" name="_next" value={`${window.location.origin}/thank-you`} />
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
                                     <div>
-                                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">{t(translations, 'contact.fullName')}</label>
+                                        <label className="block text-xs font-semibold text-gray-500 mb-1 sm:mb-1.5 uppercase tracking-wider">{t(translations, 'contact.fullName')}</label>
                                         <input
                                             type="text"
                                             name="Full Name"
                                             required
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-xs sm:text-sm"
                                             placeholder="Your full name"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">{t(translations, 'contact.phone')}</label>
+                                        <label className="block text-xs font-semibold text-gray-500 mb-1 sm:mb-1.5 uppercase tracking-wider">{t(translations, 'contact.phone')}</label>
                                         <input
                                             type="tel"
                                             name="Phone Number"
                                             required
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-xs sm:text-sm"
                                             placeholder="+251 ..."
                                         />
                                     </div>

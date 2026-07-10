@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Rocket, Globe, CheckCircle, Layers, Database, Cloud } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -34,31 +34,30 @@ const Hero = () => {
         { Icon: Globe, color: "text-emerald-500", bottom: "20%", right: "8%", delay: 1 },
     ];
 
-    const circleFeatures = [
-        { icon: Code, label: 'Web Apps', color: 'bg-blue-500' },
-        { icon: Smartphone, label: 'Mobile', color: 'bg-purple-500' },
-        { icon: Cloud, label: 'Cloud', color: 'bg-cyan-500' },
-        { icon: Database, label: 'Data', color: 'bg-emerald-500' },
+    const stats = [
+        { number: '20+', label: 'Projects' },
+        { number: '12+', label: 'Clients' },
+        { number: '100%', label: 'Satisfaction' },
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16">
-            {/* Background Image */}
+        <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20 pb-8 sm:pb-10 md:pt-28 md:pb-16">
+            {/* Background Image - dimmed slightly for better text readability */}
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/homepageback.png)' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-gray-50/90 dark:from-gray-900/90 dark:via-[#0f172a]/85 dark:to-blue-900/90"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-gray-50/70 dark:from-gray-900/70 dark:via-[#0f172a]/60 dark:to-blue-900/70"></div>
             </div>
             
             {/* Background Decorations */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-grid opacity-30"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-[-10%] left-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-accent/5 rounded-full blur-3xl"></div>
+                <div className="absolute inset-0 bg-grid opacity-20 md:opacity-30"></div>
 
-                {/* Floating Elements */}
+                {/* Floating Elements - hidden on mobile for cleaner look */}
                 {floatingIcons.map((item, index) => (
                     <motion.div
                         key={index}
-                        className={`absolute ${item.color}`}
+                        className={`absolute ${item.color} hidden md:block`}
                         style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom }}
                         animate={{
                             y: [0, -20, 0],
@@ -77,70 +76,65 @@ const Hero = () => {
             </div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center">
 
                     {/* Text Content */}
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-center lg:text-left z-10"
+                        className="text-center lg:text-left z-10 order-2 lg:order-1"
                     >
-                        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                            <span className="text-primary font-semibold text-sm tracking-wide">
+                        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-3 sm:mb-4 md:mb-6 px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full bg-primary/10 border border-primary/20">
+                            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse"></span>
+                            <span className="text-primary font-semibold text-xs sm:text-sm tracking-wide">
                                 Remote Software Development Team
                             </span>
                         </motion.div>
 
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-secondary dark:text-white leading-tight mb-6">
+                        <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-secondary dark:text-white leading-tight mb-3 sm:mb-4 md:mb-6">
                             We Build <span className="gradient-text">Digital</span> Solutions That <span className="gradient-text">Matter</span>
                         </motion.h1>
 
-                        <motion.p variants={itemVariants} className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        <motion.p variants={itemVariants} className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                             Your trusted remote team for IT and software solutions. We deliver outsourced projects with excellence, connecting global businesses with top-tier talent.
                         </motion.p>
 
-                        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-2.5 md:gap-4 justify-center lg:justify-start">
                             <Link
                                 to="/#services"
-                                className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-semibold text-base hover:from-primary-dark hover:to-accent-light transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base hover:from-primary-dark hover:to-accent-light transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
                             >
                                 Our Services
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
                                 to="/contact"
-                                className="px-8 py-4 bg-white dark:bg-gray-800 text-secondary dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-xl font-semibold text-base hover:border-primary hover:text-primary transition-all flex items-center justify-center"
+                                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-secondary dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base hover:border-primary hover:text-primary transition-all flex items-center justify-center"
                             >
                                 Start a Project
                             </Link>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="mt-12 flex items-center justify-center lg:justify-start gap-8">
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-secondary dark:text-white">20+</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Projects</p>
-                            </div>
-                            <div className="w-px h-12 bg-gray-200 dark:bg-gray-700"></div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-secondary dark:text-white">12+</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Clients</p>
-                            </div>
-                            <div className="w-px h-12 bg-gray-200 dark:bg-gray-700"></div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-secondary dark:text-white">100%</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Satisfaction</p>
+                        {/* Stats - 3 columns on mobile */}
+                        <motion.div variants={itemVariants} className="mt-6 sm:mt-8 md:mt-12">
+                            <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 max-w-md mx-auto lg:mx-0">
+                                {stats.map((stat, i) => (
+                                    <div key={i} className="text-center bg-white/60 dark:bg-gray-800/40 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-0 md:bg-transparent md:dark:bg-transparent md:backdrop-blur-none">
+                                        <p className="text-lg sm:text-2xl md:text-3xl font-bold text-secondary dark:text-white">{stat.number}</p>
+                                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium leading-tight">{stat.label}</p>
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                     </motion.div>
 
-                    {/* Graphic/Illustration - Right Side Circle with Animations */}
+                    {/* Graphic/Illustration - Right Side - Hidden on mobile */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="relative z-10 hidden lg:flex items-center justify-center"
+                        className="relative z-10 hidden lg:flex items-center justify-center order-1 lg:order-2"
                     >
                         <div className="relative w-full aspect-square max-w-lg mx-auto">
                             {/* Outer rotating ring */}
@@ -175,7 +169,12 @@ const Hero = () => {
                             </div>
 
                             {/* Orbiting feature icons */}
-                            {circleFeatures.map((feature, i) => {
+                            {[
+                                { icon: Code, label: 'Web Apps', color: 'bg-blue-500' },
+                                { icon: Smartphone, label: 'Mobile', color: 'bg-purple-500' },
+                                { icon: Cloud, label: 'Cloud', color: 'bg-cyan-500' },
+                                { icon: Database, label: 'Data', color: 'bg-emerald-500' },
+                            ].map((feature, i) => {
                                 const angle = (i * 90) * (Math.PI / 180);
                                 const radius = 42;
                                 const x = 50 + radius * Math.cos(angle);

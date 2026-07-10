@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
@@ -28,14 +28,14 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <section className="py-24 bg-gray-50/50 dark:bg-[#0f172a]/50 relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50/50 dark:bg-[#0f172a]/50 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8 sm:mb-12 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         Testimonials
                     </motion.span>
@@ -43,7 +43,7 @@ const Testimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary dark:text-white mb-4"
                     >
                         What Our <span className="gradient-text">Clients Say</span>
                     </motion.h2>
@@ -52,7 +52,7 @@ const Testimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+                        className="text-sm md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-2"
                     >
                         Don't just take our word for it. Hear from businesses we've helped transform through outsourced development.
                     </motion.p>
@@ -65,7 +65,7 @@ const Testimonials = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     {testimonials.map((testimonial, i) => (
                         <motion.div
                             key={i}
@@ -73,24 +73,24 @@ const Testimonials = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 p-6 rounded-xl shadow-md hover:border-primary hover:shadow-lg transition-all relative"
+                            className="bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 p-5 md:p-6 rounded-xl shadow-sm hover:border-primary hover:shadow-md transition-all relative"
                         >
-                            <Quote className="absolute top-4 right-4 w-6 h-6 text-primary/20" />
-                            <div className="flex items-center gap-1 mb-3">
+                            <Quote className="absolute top-3 right-3 md:top-4 md:right-4 w-5 h-5 md:w-6 md:h-6 text-primary/20" />
+                            <div className="flex items-center gap-1 mb-2 md:mb-3">
                                 {[...Array(testimonial.rating)].map((_, j) => (
-                                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                                    <Star key={j} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-amber-400 text-amber-400" />
                                 ))}
                             </div>
-                            <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-sm font-medium">"{testimonial.content}"</p>
+                            <p className="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 leading-relaxed text-xs md:text-sm font-medium">"{testimonial.content}"</p>
                             <div className="flex items-center gap-3">
                                 <img
                                     src={testimonial.image}
                                     alt={testimonial.name}
-                                    className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30"
+                                    className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover ring-2 ring-primary/30"
                                 />
                                 <div>
-                                    <p className="font-bold text-secondary dark:text-white text-sm">{testimonial.name}</p>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                                    <p className="font-bold text-secondary dark:text-white text-xs md:text-sm">{testimonial.name}</p>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                                 </div>
                             </div>
                         </motion.div>

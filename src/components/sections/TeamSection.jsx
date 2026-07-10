@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const teamMembers = [
     {
-        name: 'Abebe Kebede',
+        name: 'Biruhken Ayana',
         role: 'CEO & Founder',
         description: 'Visionary leader with 15+ years in software engineering and business strategy.',
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
@@ -62,15 +62,15 @@ const teamMembers = [
 
 const TeamSection = () => {
     return (
-        <section id="team" className="py-24 bg-gray-50/30 dark:bg-[#0f172a]/30 relative overflow-hidden">
+        <section id="team" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50/30 dark:bg-[#0f172a]/30 relative overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8 sm:mb-12 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         Our Team
                     </motion.span>
@@ -79,7 +79,7 @@ const TeamSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary dark:text-white mb-3 sm:mb-4 md:mb-6"
                     >
                         Meet the <span className="gradient-text">Experts</span>
                     </motion.h2>
@@ -88,7 +88,7 @@ const TeamSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+                        className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-2"
                     >
                         A diverse team of passionate professionals dedicated to delivering excellence across the globe.
                     </motion.p>
@@ -97,11 +97,11 @@ const TeamSection = () => {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3, duration: 0.8 }}
-                        className="section-divider mt-6"
+                        className="section-divider mt-4 sm:mt-6"
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                     {teamMembers.map((member, i) => (
                         <motion.div
                             key={i}
@@ -109,18 +109,18 @@ const TeamSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-xl p-6 shadow-md hover:border-primary hover:shadow-lg transition-all text-center"
+                            className="bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-sm hover:border-primary hover:shadow-md transition-all text-center"
                         >
-                            <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-primary/20">
+                            <div className="relative w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-primary/20">
                                 <img
                                     src={member.image}
                                     alt={member.name}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <h3 className="text-lg font-bold text-secondary dark:text-white mb-1">{member.name}</h3>
-                            <p className="text-primary font-semibold text-sm mb-3">{member.role}</p>
-                            <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{member.description}</p>
+                            <h3 className="text-xs sm:text-sm md:text-lg font-bold text-secondary dark:text-white mb-0.5 md:mb-1">{member.name}</h3>
+                            <p className="text-primary font-semibold text-[10px] sm:text-xs md:text-sm mb-1.5 md:mb-2 md:mb-3">{member.role}</p>
+                            <p className="text-gray-600 dark:text-gray-400 text-[10px] sm:text-xs md:text-sm leading-relaxed">{member.description}</p>
                         </motion.div>
                     ))}
                 </div>

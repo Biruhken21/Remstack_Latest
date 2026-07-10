@@ -93,17 +93,17 @@ const Services = () => {
     const { t } = useLanguage();
 
     return (
-        <section id="services" className="py-24 bg-[#ffffff] relative overflow-hidden">
+        <section id="services" className="py-16 md:py-24 bg-[#ffffff] relative overflow-hidden">
             <div className="absolute inset-0 bg-grid opacity-10"></div>
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-sm"
+                        className="text-primary font-bold tracking-wider uppercase mb-2 block text-xs md:text-sm"
                     >
                         {t(translations, 'services.title')}
                     </motion.span>
@@ -112,7 +112,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-secondary mb-6"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-secondary mb-4 md:mb-6 px-2"
                     >
                         {t(translations, 'services.subtitle')}
                     </motion.h2>
@@ -125,7 +125,7 @@ const Services = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {servicesList.map((service, index) => (
                         <motion.div
                             key={index}
@@ -133,24 +133,24 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: service.delay }}
-                            className="group relative bg-[#f0f0f0] rounded-xl p-6 shadow-sm border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                            className="group relative bg-[#f0f0f0] dark:bg-gray-800/50 rounded-xl p-5 md:p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md transition-all duration-300"
                         >
                             {/* Subtle gradient overlay on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/[0.02] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                             
-                            <div className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4 relative`}>
-                                <service.icon className="w-6 h-6" />
+                            <div className={`w-10 h-10 md:w-12 md:h-12 ${service.color} rounded-lg flex items-center justify-center mb-3 md:mb-4 relative`}>
+                                <service.icon className="w-5 h-5 md:w-6 md:h-6" />
                             </div>
-                            <h3 className="text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
-                            <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                            <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">{service.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 leading-relaxed text-xs md:text-sm line-clamp-3">
                                 {service.desc}
                             </p>
                             <Link
                                 to={`/services/${service.id}`}
-                                className="inline-flex items-center text-primary font-semibold text-sm hover:text-primary-dark transition-colors group/link"
+                                className="inline-flex items-center text-primary font-semibold text-xs md:text-sm hover:text-primary-dark transition-colors group/link"
                             >
                                 Discover More
-                                <ArrowRight className="w-4 h-4 ml-1.5 group-hover/link:translate-x-1 transition-transform" />
+                                <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-1.5 group-hover/link:translate-x-1 transition-transform" />
                             </Link>
                         </motion.div>
                     ))}

@@ -25,7 +25,7 @@ const Logo = ({ className = "h-10", isScrolled = false, showText = true, isDarkB
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
                 >
-                    <span className={`text-xl font-black tracking-tighter ${
+                    <span className={`text-2xl font-black tracking-tighter ${
                         isDarkBg 
                             ? 'text-white' 
                             : isScrolled 
@@ -34,7 +34,13 @@ const Logo = ({ className = "h-10", isScrolled = false, showText = true, isDarkB
                     }`}>
                         Rem<span className="text-primary">Stack</span>
                     </span>
-                    <span className="text-[8px] font-bold uppercase tracking-[0.15em] text-primary/80">
+                    <span className={`text-[8px] font-black uppercase tracking-[0.15em] font-extrabold ${
+                        isDarkBg 
+                            ? 'text-white' 
+                            : isScrolled 
+                                ? 'text-primary' 
+                                : 'text-primary'
+                    }`}>
                         Technologies
                     </span>
                 </motion.div>
