@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import { Target, Users, Award, Code, Rocket, Shield, Zap, Globe, Lightbulb, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';

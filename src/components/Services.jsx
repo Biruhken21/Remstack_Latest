@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Code, Smartphone, Globe, Cloud, Server, Shield, ArrowRight, HardDrive, Database, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';

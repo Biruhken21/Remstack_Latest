@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Globe2, Users2, TrendingUp, Award } from 'lucide-react';
 

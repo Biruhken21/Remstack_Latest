@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle, User, Phone, Mail, Package, FileText, Building, MapPin } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 
 const OrderModal = ({ isOpen, onClose, product }) => {
     const { t } = useLanguage();
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitted] = useState(false);
 
     const isPaperBag = product?.type === 'Paper Bag' || product?.category === 'Paper Bag';
     const isNonWovenBag = product?.type === 'Non-Woven Bag' || product?.category === 'Non-Woven Bag';

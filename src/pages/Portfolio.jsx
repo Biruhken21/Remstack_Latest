@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { ExternalLink, Github, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera } from 'lucide-react';
 import SEO from '../components/SEO';
 

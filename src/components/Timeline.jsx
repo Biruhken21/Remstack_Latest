@@ -1,11 +1,10 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Target, Award, Rocket, Building2, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { translations } from '../data/translations';
-
 const Timeline = () => {
-    const { t } = useLanguage();
+    const { _t } = useLanguage();
 
     const milestones = [
         {

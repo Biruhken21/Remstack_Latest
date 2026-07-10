@@ -1,11 +1,13 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Rocket, Globe, CheckCircle, Layers, Database, Cloud } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const Hero = () => {
-    const { theme } = useTheme();
+    // eslint-disable-next-line no-unused-vars
+    const { isDark } = useTheme();
 
     const containerVariants = {
         hidden: { opacity: 0 },

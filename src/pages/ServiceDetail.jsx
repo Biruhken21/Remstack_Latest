@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera } from 'lucide-react';
-import { motion } from 'framer-motion';
+
 import SEO from '../components/SEO';
 
 const serviceData = {

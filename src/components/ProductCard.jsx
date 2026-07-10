@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Maximize2 } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';

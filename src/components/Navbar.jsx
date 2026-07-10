@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Logo from './Logo';
 
