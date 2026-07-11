@@ -10,7 +10,13 @@
           "apply",
           "tailwind",
           "import",
-          "supports"
+          "supports",
+          "config",
+          "plugin",
+          "source",
+          "variant",
+          "custom-variant",
+          "utility"
         ]
       }
     ]

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { products } from '../data/products';
 import { ChevronLeft, ShoppingCart, CheckCircle, Package, Settings, Info } from 'lucide-react';
 import ProductCard from '../components/ProductCard';

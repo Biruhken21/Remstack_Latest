@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import OrderModal from '../components/OrderModal';
