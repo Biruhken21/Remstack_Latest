@@ -12,10 +12,10 @@ const Footer = () => {
     return (
         <footer className="bg-secondary text-gray-400">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
 
                     {/* Company Info */}
-                    <div className="space-y-4 md:space-y-6 sm:col-span-2 lg:col-span-1">
+                    <div className="space-y-4 md:space-y-6 sm:col-span-2 lg:col-span-1 col-span-2">
                         <Link to="/" className="flex items-center space-x-2">
                             <Logo className="h-10 md:h-14" isDarkBg={true} />
                         </Link>

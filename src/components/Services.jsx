@@ -126,7 +126,7 @@ const Services = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {servicesList.map((service, index) => (
                         <motion.div
                             key={index}
@@ -134,21 +134,21 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: service.delay }}
-                            className="group relative bg-[#f0f0f0] dark:bg-gray-800/50 rounded-xl p-5 md:p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                            className="group relative bg-[#f0f0f0] dark:bg-gray-800/50 rounded-xl p-5 md:p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md transition-all duration-300 min-h-[240px] sm:min-h-[260px] flex flex-col"
                         >
                             {/* Subtle gradient overlay on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/[0.02] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                             
-                            <div className={`w-10 h-10 md:w-12 md:h-12 ${service.color} rounded-lg flex items-center justify-center mb-3 md:mb-4 relative`}>
+                            <div className={`w-10 h-10 md:w-12 md:h-12 ${service.color} rounded-lg flex items-center justify-center mb-3 md:mb-4 relative shrink-0`}>
                                 <service.icon className="w-5 h-5 md:w-6 md:h-6" />
                             </div>
-                            <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">{service.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 leading-relaxed text-xs md:text-sm line-clamp-3">
+                            <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2 flex-grow-0">{service.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 leading-relaxed text-xs md:text-sm line-clamp-3 flex-grow">
                                 {service.desc}
                             </p>
                             <Link
                                 to={`/services/${service.id}`}
-                                className="inline-flex items-center text-primary font-semibold text-xs md:text-sm hover:text-primary-dark transition-colors group/link"
+                                className="inline-flex items-center text-primary font-semibold text-xs md:text-sm hover:text-primary-dark transition-colors group/link mt-auto"
                             >
                                 Discover More
                                 <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-1.5 group-hover/link:translate-x-1 transition-transform" />

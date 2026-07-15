@@ -9,7 +9,7 @@ import DigitalSolutions from '../components/sections/DigitalSolutions';
 import TechStack from '../components/sections/TechStack';
 import ProcessSection from '../components/sections/ProcessSection';
 import StatsSection from '../components/sections/StatsSection';
-import Testimonials from '../components/sections/Testimonials';
+// import Testimonials from '../components/sections/Testimonials';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
 
@@ -29,7 +29,7 @@ const Home = () => {
             <TechStack />
             <ProcessSection />
             <StatsSection />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <FAQSection />
             <CTASection />
             <TeamSection />

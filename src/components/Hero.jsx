@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { ArrowRight, Code, Smartphone, Rocket, Globe, CheckCircle, Layers, Database, Cloud } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Code, Smartphone, Rocket, Globe, CheckCircle, Layers, Database, Cloud, Server, Shield, HardDrive, Camera } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+
+const rotatingServices = [
+    { title: 'Custom Software', icon: Code, color: 'from-blue-500 to-blue-600' },
+    { title: 'Mobile Apps', icon: Smartphone, color: 'from-purple-500 to-purple-600' },
+    { title: 'Web Development', icon: Globe, color: 'from-emerald-500 to-emerald-600' },
+    { title: 'Cloud Solutions', icon: Cloud, color: 'from-cyan-500 to-cyan-600' },
+    { title: 'DevOps', icon: Server, color: 'from-orange-500 to-orange-600' },
+    { title: 'Cybersecurity', icon: Shield, color: 'from-rose-500 to-rose-600' },
+    { title: 'Data Migration', icon: Database, color: 'from-amber-500 to-amber-600' },
+    { title: 'CCTV & Security', icon: Camera, color: 'from-teal-500 to-teal-600' },
+];
 
 const Hero = () => {
     // eslint-disable-next-line no-unused-vars
     const { isDark } = useTheme();
+    const navigate = useNavigate();
+    const [currentService, setCurrentService] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentService((prev) => (prev + 1) % rotatingServices.length);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleServicesClick = (e) => {
+        e.preventDefault();
+        navigate('/');
+        setTimeout(() => {
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    };
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -89,8 +120,8 @@ const Hero = () => {
                     >
                         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-3 sm:mb-4 md:mb-6 px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full bg-primary/10 border border-primary/20">
                             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse"></span>
-                            <span className="text-primary font-semibold text-xs sm:text-sm tracking-wide">
-                                Remote Software Development Team
+                            <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-red-500 bg-clip-text text-transparent font-semibold text-xs sm:text-sm tracking-wide">
+                               Remote teams for IT and software solutions
                             </span>
                         </motion.div>
 
@@ -98,18 +129,19 @@ const Hero = () => {
                             We Build <span className="gradient-text">Digital</span> Solutions That <span className="gradient-text">Matter</span>
                         </motion.h1>
 
-                        <motion.p variants={itemVariants} className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        <motion.p variants={itemVariants} className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 dark:text-gray-200 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                             Your trusted remote team for IT and software solutions. We deliver outsourced projects with excellence, connecting global businesses with top-tier talent.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-2.5 md:gap-4 justify-center lg:justify-start">
-                            <Link
-                                to="/#services"
+                            <a
+                                href="/#services"
+                                onClick={handleServicesClick}
                                 className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base hover:from-primary-dark hover:to-accent-light transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
                             >
                                 Our Services
                                 <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
+                            </a>
                             <Link
                                 to="/contact"
                                 className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-secondary dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base hover:border-primary hover:text-primary transition-all flex items-center justify-center"
@@ -133,112 +165,136 @@ const Hero = () => {
 
                     {/* Graphic/Illustration - Right Side - Hidden on mobile */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="relative z-10 hidden lg:flex items-center justify-center order-1 lg:order-2"
                     >
-                        <div className="relative w-full aspect-square max-w-lg mx-auto">
-                            {/* Outer rotating ring */}
+                        <div className="relative w-full aspect-square max-w-[480px] mx-auto">
+                            {/* Subtle background glow */}
                             <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20"
-                            ></motion.div>
+                                animate={{ opacity: [0.2, 0.4, 0.2] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute inset-[10%] rounded-full bg-gradient-to-br from-primary/[0.07] to-accent/[0.07] blur-3xl"
+                            />
 
-                            {/* Middle ring */}
+                            {/* Clean Monitor Card */}
                             <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[8%] rounded-full border border-accent/30"
-                            ></motion.div>
-
-                            {/* Inner pulsing ring */}
-                            <motion.div
-                                animate={{ scale: [1, 1.05, 1] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute inset-[16%] rounded-full border-2 border-primary/40"
-                            ></motion.div>
-
-                            {/* Central circle with gradient */}
-                            <div className="absolute inset-[20%] bg-gradient-to-br from-primary to-accent rounded-full shadow-2xl flex items-center justify-center overflow-hidden">
-                                <div className="absolute inset-0 bg-grid opacity-20"></div>
-                                <div className="text-center p-8 relative z-10">
-                                    <Code className="w-16 h-16 text-white mx-auto mb-3" />
-                                    <h3 className="text-2xl font-bold text-white mb-1">RemStack</h3>
-                                    <p className="text-white/90 text-sm">Innovation Hub</p>
-                                </div>
-                            </div>
-
-                            {/* Orbiting feature icons */}
-                            {[
-                                { icon: Code, label: 'Web Apps', color: 'bg-blue-500' },
-                                { icon: Smartphone, label: 'Mobile', color: 'bg-purple-500' },
-                                { icon: Cloud, label: 'Cloud', color: 'bg-cyan-500' },
-                                { icon: Database, label: 'Data', color: 'bg-emerald-500' },
-                            ].map((feature, i) => {
-                                const angle = (i * 90) * (Math.PI / 180);
-                                const radius = 42;
-                                const x = 50 + radius * Math.cos(angle);
-                                const y = 50 + radius * Math.sin(angle);
-
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute"
-                                        style={{
-                                            left: `${x}%`,
-                                            top: `${y}%`,
-                                            transform: 'translate(-50%, -50%)'
-                                        }}
-                                        animate={{
-                                            y: [0, -8, 0],
-                                            scale: [1, 1.1, 1]
-                                        }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                            delay: i * 0.5
-                                        }}
-                                    >
-                                        <div className={`w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center shadow-lg`}>
-                                            <feature.icon className="w-7 h-7 text-white" />
-                                        </div>
-                                    </motion.div>
-                                );
-                            })}
-
-                            {/* Floating cards */}
-                            <motion.div
-                                animate={{ y: [0, -15, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700"
+                                animate={{ y: [0, -4, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute inset-[5%] bg-white dark:bg-gray-800/90 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/40 overflow-hidden"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-                                        <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                                {/* Minimal top accent */}
+                                <div className="h-1 bg-gradient-to-r from-primary to-accent" />
+
+                                {/* Header */}
+                                <div className="px-5 pt-4 pb-3 border-b border-gray-50 dark:border-gray-700/30">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2.5">
+                                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                                                <Code className="w-4 h-4 text-white" />
+                                            </div>
+                                            <div>
+                                                <p className="text-sm font-semibold text-gray-900 dark:text-white">RemStack</p>
+                                                <p className="text-[9px] text-gray-400">Technology Platform</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-900/20">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                            <span className="text-[8px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Live</span>
+                                        </div>
                                     </div>
-                                    <div className="text-left">
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">Quality</p>
-                                        <p className="font-bold text-secondary dark:text-white text-sm">Assured</p>
+                                </div>
+
+                                {/* Body */}
+                                <div className="p-5 space-y-3.5">
+
+                                    {/* Service label */}
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Our Services</span>
+                                        <span className="text-[9px] text-gray-300 dark:text-gray-500">{currentService + 1} / {rotatingServices.length}</span>
+                                    </div>
+
+                                    {/* Rotating Service Card - Clean */}
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={currentService}
+                                            initial={{ opacity: 0, y: 8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -8 }}
+                                            transition={{ duration: 0.45, ease: "easeInOut" }}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-gray-50 to-gray-50/50 dark:from-gray-700/30 dark:to-gray-700/10 border border-gray-100 dark:border-gray-700/30"
+                                        >
+                                            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${rotatingServices[currentService].color} flex items-center justify-center shadow-sm`}>
+                                                {React.createElement(rotatingServices[currentService].icon, { className: "w-5 h-5 text-white" })}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                                                    {rotatingServices[currentService].title}
+                                                </p>
+                                                <p className="text-[10px] text-gray-400">Expert team · Remote delivery</p>
+                                            </div>
+                                        </motion.div>
+                                    </AnimatePresence>
+
+                                    {/* Capabilities */}
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {['Web', 'Mobile', 'Cloud', 'Security', 'Data'].map((tag, i) => (
+                                            <motion.span
+                                                key={tag}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 0.6 + i * 0.05 }}
+                                                className="px-2.5 py-1 text-[9px] font-medium rounded-md bg-gray-50 dark:bg-gray-700/30 text-gray-500 dark:text-gray-400 border border-gray-100 dark:border-gray-700/30"
+                                            >
+                                                {tag}
+                                            </motion.span>
+                                        ))}
+                                    </div>
+
+                                    {/* Metrics */}
+                                    <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-50 dark:border-gray-700/20">
+                                        {[
+                                            { value: '99.9%', label: 'Uptime' },
+                                            { value: '100%', label: 'Delivery' },
+                                            { value: '24/7', label: 'Support' },
+                                        ].map((metric, i) => (
+                                            <motion.div
+                                                key={i}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1 + i * 0.08 }}
+                                                className="text-center"
+                                            >
+                                                <p className="text-xs font-bold text-gray-900 dark:text-white">{metric.value}</p>
+                                                <p className="text-[8px] text-gray-400 font-medium">{metric.label}</p>
+                                            </motion.div>
+                                        ))}
                                     </div>
                                 </div>
                             </motion.div>
 
+                            {/* Minimal floating indicator - Top Right */}
                             <motion.div
-                                animate={{ y: [0, 15, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                                className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700"
+                                animate={{ y: [0, -8, 0] }}
+                                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-2 -right-2 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-lg shadow-md border border-gray-100 dark:border-gray-700"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                                        <Rocket className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                    </div>
-                                    <div className="text-left">
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">Fast</p>
-                                        <p className="font-bold text-secondary dark:text-white text-sm">Delivery</p>
-                                    </div>
+                                <div className="flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                    <span className="text-[9px] font-medium text-gray-700 dark:text-gray-200">Active</span>
+                                </div>
+                            </motion.div>
+
+                            {/* Minimal floating indicator - Bottom Left */}
+                            <motion.div
+                                animate={{ y: [0, 6, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                className="absolute -bottom-2 -left-2 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-lg shadow-md border border-gray-100 dark:border-gray-700"
+                            >
+                                <div className="flex items-center gap-1.5">
+                                    <Globe className="w-3 h-3 text-gray-400" />
+                                    <span className="text-[9px] font-medium text-gray-700 dark:text-gray-200">Remote</span>
                                 </div>
                             </motion.div>
                         </div>

@@ -5,6 +5,10 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
     {
+        q: 'How can we communicate with your team?',
+        a: 'We start with an in-person or video consultation to understand your project requirements in detail. Once the project begins, we maintain daily communication via Zoom calls and instant messaging through Slack to ensure smooth collaboration, provide progress updates, and address any questions until the final delivery.'
+    },
+    {
         q: 'How does your remote team model work?',
         a: 'Our distributed team works across time zones to provide 24/7 productivity. We use modern collaboration tools like Slack, Zoom, and project management platforms to ensure seamless communication and transparency throughout your project.'
     },

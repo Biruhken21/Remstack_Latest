@@ -1,6 +1,5 @@
-
 import { motion } from 'framer-motion';
-import { Target, Users, Award, Code, Rocket, Shield, Zap, Globe, Lightbulb, ArrowRight } from 'lucide-react';
+import { Target, Users, Award, Code, Rocket, Shield, Zap, Globe, Lightbulb, ArrowRight, Wifi, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import SEO from '../components/SEO';
@@ -11,8 +10,8 @@ const About = () => {
     return (
         <div className="bg-gray-50 pt-20">
             <SEO
-                title="About RemStack Technologies - Our Vision & Mission"
-                description="Learn about the journey of RemStack Technologies, our commitment to excellence, innovation, and how we empower businesses through technology in Ethiopia."
+                title="About RemStack Technologies - Remote IT Team"
+                description="RemStack Technologies is a remote-first IT and software development team based in Ethiopia. We build digital solutions for global businesses with top-tier remote talent."
             />
             {/* Hero Section */}
             <section className="bg-secondary py-12 sm:py-16 md:py-24 px-4 text-center relative overflow-hidden">
@@ -42,43 +41,43 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Our Story */}
-            <section className="py-12 sm:py-16 md:py-24 bg-white">
+            {/* Our Story - Remote-First Team */}
+            <section className="py-8 sm:py-12 md:py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center">
                         <div className="space-y-4 sm:space-y-6 md:space-y-8">
                             <div>
                                 <span className="text-primary font-bold uppercase tracking-wider text-xs sm:text-sm">Our Story</span>
-                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mt-1 sm:mt-2 mb-2 sm:mb-4">From Vision to Reality</h2>
+                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mt-1 sm:mt-2 mb-2 sm:mb-4">A Remote Team with Global Impact</h2>
                                 <div className="section-divider mb-4 sm:mb-6"></div>
                                 <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-2 sm:mb-4">
-                                    RemStack Technologies was founded by <span className="font-bold text-secondary">Biruhken Ayana</span>, a highly motivated and creative Software Engineer, along with two dedicated co-founders. What began as a remote software development team has now transformed into a thriving office-based operation, bringing together talented developers, designers, and strategists.
+                                    RemStack Technologies was founded by <span className="font-bold text-secondary">Biruhken Ayana</span>, a passionate and creative Software Engineer, alongside two dedicated co-founders. We operate as a <span className="font-bold text-primary">remote-first IT and software solutions team</span> — connecting global businesses with top Ethiopian tech talent without the limitations of geography.
                                 </p>
                                 <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-2 sm:mb-4">
-                                    Our journey reached a significant milestone when we participated in the startup competition at Dire Dawa University's Business and Technology Incubation Center, where we earned certification for our innovative approach. We have successfully competed in the Biruh Ethiopia startup competition, receiving valuable feedback and insights that have shaped our vision.
+                                    Our remote model allows us to deliver high-quality software development, IT consulting, and digital transformation services to clients worldwide with flexibility, speed, and cost-effectiveness. We are not bound by office walls — our workspace is wherever innovation happens.
                                 </p>
                                 <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
-                                    With tenacity and dedication to digital solutions, we are now preparing to launch our software startup soon. Our team's passion for innovation drives us to create transformative technology solutions that empower businesses to thrive in the digital age.
+                                    While we currently operate as a fully remote team, <span className="font-bold text-secondary">we are actively planning to launch a physical office</span> in the near future to better serve our growing client base and expand our local presence in Addis Ababa. Our goal is to establish a world-class technology hub that will further strengthen our ability to deliver exceptional solutions.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6">
                                 <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 md:p-6 bg-gray-50 rounded-lg sm:rounded-xl hover:shadow-md transition-all">
                                     <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                                        <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                                        <Wifi className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-secondary mb-1 sm:mb-2 text-sm md:text-base">Our Mission</h4>
-                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">To empower Ethiopian businesses with world-class software solutions, bridging the gap between innovative technology and practical business needs through custom development, strategic consulting, and dedicated support.</p>
+                                        <h4 className="font-bold text-secondary mb-1 sm:mb-2 text-sm md:text-base">Remote-First, Global Reach</h4>
+                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">We build world-class software solutions from Ethiopia for clients around the globe. Our remote setup means faster delivery, lower costs, and access to top-tier talent without geographic barriers.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 md:p-6 bg-gray-50 rounded-lg sm:rounded-xl hover:shadow-md transition-all">
                                     <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                                        <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                                        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-secondary mb-1 sm:mb-2 text-sm md:text-base">Our Vision</h4>
-                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">To be the leading technology partner for African enterprises, fostering a digital-first ecosystem that drives innovation, creates opportunities, and positions Ethiopia at the forefront of technological advancement.</p>
+                                        <h4 className="font-bold text-secondary mb-1 sm:mb-2 text-sm md:text-base">Future Plans: Office Launch</h4>
+                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">We are preparing to launch a physical office in Addis Ababa, Ethiopia to strengthen our local presence, facilitate client meetings, and create a collaborative innovation hub for our growing team.</p>
                                     </div>
                                 </div>
                             </div>
@@ -93,12 +92,12 @@ const About = () => {
                                 <img
                                     src="/about-remstack.png"
                                     className="w-full h-56 sm:h-80 md:h-96 lg:h-[500px] object-cover"
-                                    alt="RemStack Team"
+                                    alt="RemStack Team - Remote IT Solutions"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent flex items-end p-3 sm:p-4 md:p-6 lg:p-8">
                                     <div className="text-white">
-                                        <p className="font-bold text-lg sm:text-xl md:text-2xl">Building the Future</p>
-                                        <p className="text-white/70 text-xs sm:text-sm">One Solution at a Time</p>
+                                        <p className="font-bold text-lg sm:text-xl md:text-2xl">Remote Teams, Global Impact</p>
+                                        <p className="text-white/70 text-xs sm:text-sm">Based in Ethiopia · Serving the World</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -108,14 +107,14 @@ const About = () => {
             </section>
 
             {/* Why Partner With Us */}
-            <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
+            <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-8 sm:mb-12 md:mb-16">
                         <span className="text-primary font-bold uppercase tracking-wider text-xs sm:text-sm">Why Us</span>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mt-1 sm:mt-2 mb-2 sm:mb-4">Why Partner With RemStack?</h2>
                         <div className="section-divider"></div>
                         <p className="text-gray-500 max-w-2xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg mt-4 sm:mt-6 px-2">
-                            We bring together technical expertise, local market knowledge, and a commitment to your success.
+                            We combine Ethiopian tech talent with global standards to deliver exceptional remote IT solutions.
                         </p>
                     </div>
 
@@ -138,8 +137,8 @@ const About = () => {
                             },
                             {
                                 icon: Globe,
-                                title: 'Local & Global',
-                                desc: 'Based in Addis Ababa with global standards and international best practices.'
+                                title: 'Global Standards',
+                                desc: 'Based in Ethiopia with international best practices and competitive global pricing.'
                             },
                         ].map((feature, i) => (
                             <motion.div
@@ -161,8 +160,84 @@ const About = () => {
                 </div>
             </section>
 
+            {/* Where We Serve */}
+            <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                        <span className="text-primary font-bold uppercase tracking-wider text-xs sm:text-sm">Our Reach</span>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mt-1 sm:mt-2 mb-2 sm:mb-4">Where We Serve</h2>
+                        <div className="section-divider"></div>
+                        <p className="text-gray-500 max-w-2xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg mt-4 sm:mt-6 px-2">
+                            Proudly delivering remote IT and software solutions across Africa with a growing footprint.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
+                        {[
+                            { 
+                                country: 'Ethiopia', 
+                                flag: '🇪🇹', 
+                                capital: 'Addis Ababa',
+                                desc: 'Our headquarters and primary talent hub. Home to our founding team and core operations.',
+                                color: 'from-green-500 to-yellow-500',
+                                highlight: 'Headquarters'
+                            },
+                            { 
+                                country: 'South Africa', 
+                                flag: '🇿🇦', 
+                                capital: 'Johannesburg',
+                                desc: 'Expanding our client presence and partnerships in the Southern African market.',
+                                color: 'from-red-500 to-blue-500',
+                                highlight: 'Expanding'
+                            },
+                            { 
+                                country: 'Kenya', 
+                                flag: '🇰🇪', 
+                                capital: 'Nairobi',
+                                desc: 'Building strategic partnerships and client relationships in East Africa\'s tech hub.',
+                                color: 'from-green-500 to-red-500',
+                                highlight: 'Growing'
+                            },
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:border-primary hover:shadow-lg transition-all group"
+                            >
+                                <div className={`h-2 bg-gradient-to-r ${item.color}`}></div>
+                                <div className="p-5 sm:p-6 md:p-8 text-center">
+                                    <div className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">{item.flag}</div>
+                                    <h3 className="text-xl sm:text-2xl font-bold text-secondary mb-1">{item.country}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4">{item.capital}</p>
+                                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{item.desc}</p>
+                                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                                        i === 0 
+                                            ? 'bg-primary/10 text-primary' 
+                                            : i === 1 
+                                                ? 'bg-amber-50 text-amber-600' 
+                                                : 'bg-emerald-50 text-emerald-600'
+                                    }`}>
+                                        {item.highlight}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-8 sm:mt-10 md:mt-12">
+                        <p className="text-gray-500 text-xs sm:text-sm md:text-base">
+                            🌍 Actively exploring new markets across Africa and beyond. 
+                            <Link to="/contact" className="text-primary font-semibold hover:underline ml-1">Contact us</Link> to discuss opportunities in your region.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             {/* Core Principles */}
-            <section className="py-24 bg-white">
+            <section className="py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <span className="text-primary font-bold uppercase tracking-wider text-sm">Values</span>
@@ -212,12 +287,12 @@ const About = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden">
+            <section className="py-8 sm:py-12 md:py-16 bg-primary relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 md:mb-6">Ready to Work Together?</h2>
                     <p className="text-white/80 text-xs sm:text-sm md:text-base lg:text-lg mb-6 sm:mb-8 md:mb-10 px-2">
-                        Let's discuss how RemStack Technologies can help bring your vision to life.
+                        Let's discuss how RemStack Technologies can help bring your vision to life — remotely or on-site.
                     </p>
                     <Link
                         to="/contact"

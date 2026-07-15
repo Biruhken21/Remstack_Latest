@@ -6,7 +6,7 @@ import { Code2, Users, Award, TrendingUp } from 'lucide-react';
 const stats = [
     { number: '20+', label: 'Projects Delivered', icon: Code2 },
     { number: '12+', label: 'Happy Clients', icon: Users },
-    { number: '4+', label: 'Years Experience', icon: Award },
+    { number: '2+', label: 'Years Experience', icon: Award },
     { number: '100%', label: 'Client Satisfaction', icon: TrendingUp },
 ];
 

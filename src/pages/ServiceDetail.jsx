@@ -1,9 +1,17 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera } from 'lucide-react';
+import { ArrowLeft, Check, Code, Smartphone, Globe, Cloud, Server, Shield, HardDrive, Database, Camera, Terminal, Lock, Settings, Repeat, Video } from 'lucide-react';
 
 import SEO from '../components/SEO';
+
+const serviceIcons = {
+    'devops-services': { icon: Terminal, bg: 'from-orange-500 to-red-500', label: 'DevOps' },
+    'cybersecurity': { icon: Lock, bg: 'from-rose-500 to-red-600', label: 'Security' },
+    'server-installation': { icon: Settings, bg: 'from-indigo-500 to-indigo-600', label: 'Server' },
+    'data-migration': { icon: Repeat, bg: 'from-amber-500 to-amber-600', label: 'Data' },
+    'cctv-installation': { icon: Video, bg: 'from-teal-500 to-teal-600', label: 'CCTV' },
+};
 
 const serviceData = {
     'custom-software': {
@@ -272,6 +280,8 @@ const serviceData = {
 const ServiceDetail = () => {
     const { id } = useParams();
     const service = serviceData[id];
+    const svgIcon = serviceIcons[id];
+    const Icon = service.icon;
 
     if (!service) {
         return (
@@ -283,7 +293,47 @@ const ServiceDetail = () => {
         );
     }
 
-    const Icon = service.icon;
+    const ServiceVisual = ({ className = "" }) => {
+        if (svgIcon) {
+            const SvgIconComponent = svgIcon.icon;
+            return (
+                <div className={`relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br ${svgIcon.bg} ${className}`}>
+                    <div className="absolute inset-0 bg-grid opacity-10"></div>
+                    <div className="relative p-12 md:p-16 flex items-center justify-center min-h-[300px] md:min-h-[400px]">
+                        <div className="text-center">
+                            <div className="w-24 h-24 md:w-32 md:h-32 mx-auto bg-white/20 rounded-3xl flex items-center justify-center mb-6 backdrop-blur-sm">
+                                <SvgIconComponent className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{svgIcon.label}</h3>
+                            <p className="text-white/70 text-sm md:text-base">{service.subtitle}</p>
+                            <div className="flex items-center justify-center gap-2 mt-4">
+                                <span className="w-2 h-2 bg-white/60 rounded-full animate-pulse"></span>
+                                <span className="text-white/60 text-xs">Available 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        return (
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-auto" 
+                    loading="lazy"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.classList.add('bg-gradient-to-br', 'from-primary/10', 'to-accent/10', 'p-12', 'flex', 'items-center', 'justify-center', 'min-h-[300px]');
+                        const fallback = document.createElement('div');
+                        fallback.className = 'text-center';
+                        fallback.innerHTML = `<div class="w-20 h-20 mx-auto bg-primary/20 rounded-2xl flex items-center justify-center mb-4"><svg class="w-10 h-10 text-primary" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-gray-800">${service.title}</h3>`;
+                        e.target.parentElement.appendChild(fallback);
+                    }}
+                />
+            </div>
+        );
+    };
 
     return (
         <div className="pt-24 pb-16 bg-[#ffffff]">
@@ -307,7 +357,7 @@ const ServiceDetail = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className={`inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6`}>
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6">
                                 <Icon className="w-8 h-8 text-primary" />
                             </div>
                             <h1 className="text-5xl font-black text-gray-900 mb-4">{service.title}</h1>
@@ -327,22 +377,7 @@ const ServiceDetail = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="relative"
                         >
-                            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                                <img 
-                                    src={service.image} 
-                                    alt={service.title} 
-                                    className="w-full h-auto" 
-                                    loading="lazy"
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.parentElement.classList.add('bg-gradient-to-br', 'from-primary/10', 'to-accent/10', 'p-12', 'flex', 'items-center', 'justify-center', 'min-h-[300px]');
-                                        const fallback = document.createElement('div');
-                                        fallback.className = 'text-center';
-                                        fallback.innerHTML = `<div class="w-20 h-20 mx-auto bg-primary/20 rounded-2xl flex items-center justify-center mb-4"><svg class="w-10 h-10 text-primary" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-gray-800">${service.title}</h3>`;
-                                        e.target.parentElement.appendChild(fallback);
-                                    }}
-                                />
-                            </div>
+                            <ServiceVisual />
                         </motion.div>
                     </div>
                 </div>
