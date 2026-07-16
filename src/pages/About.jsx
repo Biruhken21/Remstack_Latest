@@ -14,13 +14,13 @@ const About = () => {
                 description="RemStack Technologies is a remote-first IT and software development team based in Ethiopia. We build digital solutions for global businesses with top-tier remote talent."
             />
             {/* Hero Section */}
-            <section className="bg-secondary py-12 sm:py-16 md:py-24 px-4 text-center relative overflow-hidden">
+            <section className="bg-secondary py-12 sm:py-16 md:py-20 lg:py-24 px-4 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 sm:mb-6"
+                        className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black text-white mb-3 sm:mb-6"
                     >
                         {t(translations, 'about.title')}
                     </motion.h1>
@@ -34,7 +34,7 @@ const About = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-2"
+                        className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4"
                     >
                         {t(translations, 'about.subtitle')}
                     </motion.p>

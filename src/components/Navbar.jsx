@@ -136,23 +136,23 @@ const Navbar = () => {
                             `}</style>
                             <div className="flex items-center justify-start md:justify-center gap-1.5 py-1 overflow-x-auto tagline-scroll -mx-4 px-4">
                                 <div className="flex items-center gap-1 bg-gray-50/80 dark:bg-gray-800/40 px-2 py-0.5 rounded-full border border-gray-100 dark:border-gray-700/50 shrink-0 whitespace-nowrap">
-                                    <span className="text-[8px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Get Certified</span>
-                                    <span className="text-[8px] md:text-[9px] font-semibold italic text-primary">Professionals</span>
+                                    <span className="text-[10px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Get Certified</span>
+                                    <span className="text-[10px] md:text-[9px] font-semibold italic text-primary">Professionals</span>
                                 </div>
                                 <div className="w-2 h-px bg-gray-200 dark:bg-gray-700 shrink-0"></div>
                                 <div className="flex items-center gap-1 bg-gray-50/80 dark:bg-gray-800/40 px-2 py-0.5 rounded-full border border-gray-100 dark:border-gray-700/50 shrink-0 whitespace-nowrap">
-                                    <span className="text-[8px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Fast</span>
-                                    <span className="text-[8px] md:text-[9px] font-semibold italic text-accent">Delivery</span>
+                                    <span className="text-[10px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Fast</span>
+                                    <span className="text-[10px] md:text-[9px] font-semibold italic text-accent">Delivery</span>
                                 </div>
                                 <div className="w-2 h-px bg-gray-200 dark:bg-gray-700 shrink-0"></div>
                                 <div className="flex items-center gap-1 bg-gray-50/80 dark:bg-gray-800/40 px-2 py-0.5 rounded-full border border-gray-100 dark:border-gray-700/50 shrink-0 whitespace-nowrap">
-                                    <span className="text-[8px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Quality</span>
-                                    <span className="text-[8px] md:text-[9px] font-semibold italic text-emerald-500 dark:text-emerald-400">Assured</span>
+                                    <span className="text-[10px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Quality</span>
+                                    <span className="text-[10px] md:text-[9px] font-semibold italic text-emerald-500 dark:text-emerald-400">Assured</span>
                                 </div>
                                 <div className="w-2 h-px bg-gray-200 dark:bg-gray-700 shrink-0"></div>
                                 <div className="flex items-center gap-1 bg-gray-50/80 dark:bg-gray-800/40 px-2 py-0.5 rounded-full border border-gray-100 dark:border-gray-700/50 shrink-0 whitespace-nowrap">
-                                    <span className="text-[8px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Cost</span>
-                                    <span className="text-[8px] md:text-[9px] font-semibold italic text-amber-500 dark:text-amber-400">Effective</span>
+                                    <span className="text-[10px] md:text-[9px] font-medium italic text-gray-500 dark:text-gray-400">Cost</span>
+                                    <span className="text-[10px] md:text-[9px] font-semibold italic text-amber-500 dark:text-amber-400">Effective</span>
                                 </div>
                             </div>
                         </div>
@@ -300,28 +300,22 @@ const Navbar = () => {
                             <Link
                                 key={i}
                                 to={link.path}
-                                onClick={link.onClick}
+                                onClick={() => {
+                                    if (link.onClick) link.onClick();
+                                    else setIsOpen(false);
+                                }}
                                 className="block px-4 py-3 rounded-lg text-base font-medium text-gray-900 dark:text-white hover:bg-primary/5 hover:text-primary transition-colors"
                             >
                                 {link.label}
                             </Link>
                         ))}
 
-                        <div className="px-4 py-2">
-                            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Services</p>
-                            <div className="space-y-0.5">
-                                {serviceItems.map((item) => (
-                                    <Link
-                                        key={item.path}
-                                        to={item.path}
-                                        onClick={() => setIsOpen(false)}
-                                        className="block px-4 py-2 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-primary/5 hover:text-primary transition-colors"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
+                        <button
+                            onClick={handleServicesClick}
+                            className="w-full text-left block px-4 py-3 rounded-lg text-base font-medium text-gray-900 dark:text-white hover:bg-primary/5 hover:text-primary transition-colors"
+                        >
+                            Services
+                        </button>
                     </div>
 
                     <div className="h-px bg-gray-100 dark:bg-gray-800 my-3"></div>

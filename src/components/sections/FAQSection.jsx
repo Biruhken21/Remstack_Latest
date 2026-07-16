@@ -88,10 +88,10 @@ const FAQSection = () => {
                         >
                             <button
                                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                className="w-full flex items-center justify-between p-3 md:p-4 text-left"
+                                className="w-full flex items-center justify-between p-4 md:p-4 text-left min-h-[52px]"
                             >
-                                <span className="font-medium text-xs md:text-sm text-secondary dark:text-white pr-4">{faq.q}</span>
-                                <ChevronDown className={`w-3.5 h-3.5 md:w-4 md:h-4 text-primary shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                                <span className="font-medium text-sm md:text-sm text-secondary dark:text-white pr-4 leading-snug">{faq.q}</span>
+                                <ChevronDown className={`w-4 h-4 md:w-4 md:h-4 text-primary shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                             </button>
                             <AnimatePresence>
                                 {openFaq === i && (
@@ -102,7 +102,7 @@ const FAQSection = () => {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="px-3 md:px-4 pb-3 md:pb-4 text-xs text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-200 dark:border-gray-700 pt-3">{faq.a}</p>
+                                        <p className="px-4 md:px-4 pb-4 md:pb-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-200 dark:border-gray-700 pt-3">{faq.a}</p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

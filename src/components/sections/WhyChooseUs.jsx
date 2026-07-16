@@ -71,7 +71,7 @@ const WhyChooseUs = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                     {benefits.map((benefit, i) => (
                         <motion.div
                             key={i}
@@ -79,13 +79,13 @@ const WhyChooseUs = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-[#f0f0f0] dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 md:p-6 shadow-sm hover:border-primary hover:shadow-lg transition-all text-center"
+                            className="bg-[#f0f0f0] dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-5 md:p-6 shadow-sm hover:border-primary hover:shadow-lg transition-all text-center"
                         >
                             <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg`}>
                                 <benefit.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                             </div>
-                            <h3 className="text-sm md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2">{benefit.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed font-medium">{benefit.desc}</p>
+                            <h3 className="text-sm sm:text-base md:text-lg font-bold text-secondary dark:text-white mb-1.5 md:mb-2">{benefit.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm md:text-sm leading-relaxed font-medium">{benefit.desc}</p>
                         </motion.div>
                     ))}
                 </div>

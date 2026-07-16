@@ -19,8 +19,8 @@
   background-color: #f8fafc;
   color: #1e293b;
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* Mobile-first font sizes */
-  font-size: 14px;
+  /* Mobile-first font sizes - Minimum 16px to prevent iOS zoom on input focus */
+  font-size: 16px;
 }
 
 @media (min-width: 640px) {

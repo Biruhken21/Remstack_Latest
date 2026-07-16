@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 const PrivacyPolicy = () => {
     return (
-        <div className="bg-gray-50 min-h-screen pt-32 pb-20 px-4">
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12">
+        <div className="bg-gray-50 min-h-screen pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-20 px-4">
+            <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-xl p-5 sm:p-8 md:p-12">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-4xl font-black text-gray-900 mb-8"
+                    className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-6 sm:mb-8"
                 >
                     Privacy Policy
                 </motion.h1>

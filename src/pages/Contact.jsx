@@ -36,13 +36,13 @@ const Contact = () => {
                 description="Have a project in mind? Reach out to RemStack Technologies for a free consultation. We're here to help you scale with custom software solutions."
             />
             {/* Header */}
-            <div className="relative bg-secondary py-24 mb-16 overflow-hidden">
+            <div className="relative bg-secondary py-16 sm:py-20 md:py-24 mb-12 sm:mb-16 overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-10"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-black text-white mb-6"
+                        className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6"
                     >
                         {t(translations, 'contact.title')}
                     </motion.h1>
@@ -50,20 +50,20 @@ const Contact = () => {
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ delay: 0.3 }}
-                        className="section-divider mb-6"
+                        className="section-divider mb-4 sm:mb-6"
                     ></motion.div>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
+                        className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed px-2"
                     >
                         {t(translations, 'contact.subtitle')}
                     </motion.p>
                 </div>
             </div>
 
-            <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-24 -mt-16 sm:-mt-24 md:-mt-32 relative z-20">
+            <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-24 -mt-8 sm:-mt-16 md:-mt-32 relative z-20">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {/* Contact Form */}
                     <div className="lg:col-span-2">

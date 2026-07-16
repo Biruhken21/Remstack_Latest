@@ -112,7 +112,7 @@ const TeamSection = () => {
                             transition={{ delay: i * 0.1 }}
                             className="bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-sm hover:border-primary hover:shadow-md transition-all text-center"
                         >
-                            <div className="relative w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-primary/20">
+                            <div className="relative w-20 sm:w-20 md:w-24 h-20 sm:h-20 md:h-24 mx-auto mb-3 sm:mb-3 md:mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-primary/20">
                                 <img
                                     src={member.image}
                                     alt={member.name}

@@ -14,7 +14,7 @@ const projects = [
         color: 'bg-blue-100 text-blue-600'
     },
     {
-        title: 'Hymn Mobile App',
+        title: 'Ride Hailing Mobile App',
         category: 'Mobile App',
         description: 'Cross-platform ride-hailing application with real-time tracking, fare estimation, and driver management.',
         image: 'https://images.unsplash.com/photo-1544654803-b69140b285a1?w=600&h=400&fit=crop',

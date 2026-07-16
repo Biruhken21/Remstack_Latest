@@ -125,11 +125,11 @@ const Hero = () => {
                             </span>
                         </motion.div>
 
-                        <motion.h1 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-secondary dark:text-white leading-tight mb-3 sm:mb-4 md:mb-6">
+                        <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-secondary dark:text-white leading-tight mb-3 sm:mb-4 md:mb-6">
                             We Build <span className="gradient-text">Digital</span> Solutions That <span className="gradient-text">Matter</span>
                         </motion.h1>
 
-                        <motion.p variants={itemVariants} className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 dark:text-gray-200 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        <motion.p variants={itemVariants} className="text-sm sm:text-md md:text-base lg:text-lg text-gray-800 dark:text-gray-200 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                             Your trusted remote team for IT and software solutions. We deliver outsourced projects with excellence, connecting global businesses with top-tier talent.
                         </motion.p>
 

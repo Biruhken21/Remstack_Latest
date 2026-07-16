@@ -126,7 +126,7 @@ const Services = () => {
                     ></motion.div>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                     {servicesList.map((service, index) => (
                         <motion.div
                             key={index}
@@ -134,7 +134,7 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: service.delay }}
-                            className="group relative bg-[#f0f0f0] dark:bg-gray-800/50 rounded-xl p-5 md:p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md transition-all duration-300 min-h-[240px] sm:min-h-[260px] flex flex-col"
+                            className="group relative bg-[#f0f0f0] dark:bg-gray-800/50 rounded-xl p-4 sm:p-5 md:p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md transition-all duration-300 min-h-[200px] sm:min-h-[240px] md:min-h-[260px] flex flex-col"
                         >
                             {/* Subtle gradient overlay on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/[0.02] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

@@ -343,29 +343,29 @@ const ServiceDetail = () => {
                 ogImage={service.image}
             />
             {/* Hero Section */}
-            <section className="relative bg-[#ffffff] py-20 overflow-hidden">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+            <section className="relative bg-[#ffffff] py-12 sm:py-16 md:py-20 overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-primary/5 rounded-full blur-3xl"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <Link to="/" className="inline-flex items-center text-primary hover:text-primary-dark mb-8 transition-colors font-medium">
-                        <ArrowLeft className="w-5 h-5 mr-2" />
+                    <Link to="/" className="inline-flex items-center text-primary hover:text-primary-dark mb-4 sm:mb-8 transition-colors font-medium text-sm sm:text-base">
+                        <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
                         Back to Home
                     </Link>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6">
-                                <Icon className="w-8 h-8 text-primary" />
+                            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-xl sm:rounded-2xl mb-4 sm:mb-6">
+                                <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
                             </div>
-                            <h1 className="text-5xl font-black text-gray-900 mb-4">{service.title}</h1>
-                            <p className="text-2xl text-primary font-medium mb-6">{service.subtitle}</p>
-                            <p className="text-lg text-gray-600 leading-relaxed mb-8">{service.description}</p>
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-2 sm:mb-3 md:mb-4">{service.title}</h1>
+                            <p className="text-lg sm:text-xl md:text-2xl text-primary font-medium mb-4 sm:mb-6">{service.subtitle}</p>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">{service.description}</p>
                             <Link
                                 to="/contact"
-                                className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-full font-bold hover:from-primary-dark hover:to-accent-light transition-all shadow-lg"
+                                className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-accent text-white rounded-full font-bold text-sm sm:text-base hover:from-primary-dark hover:to-accent-light transition-all shadow-lg"
                             >
                                 Get Started
                             </Link>
@@ -384,10 +384,10 @@ const ServiceDetail = () => {
             </section>
 
             {/* Features Section */}
-            <section className="py-20 bg-[#ffffff]">
+            <section className="py-12 sm:py-16 md:py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">What We Offer</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12">What We Offer</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {service.features.map((feature, index) => (
                             <motion.div
                                 key={index}
@@ -395,10 +395,10 @@ const ServiceDetail = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="flex items-start gap-4 bg-[#f0f0f0] p-6 rounded-xl shadow-sm hover:shadow-md transition-all"
+                                className="flex items-start gap-3 sm:gap-4 bg-[#f0f0f0] p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-md transition-all"
                             >
-                                <Check className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                                <span className="text-gray-700 font-medium">{feature}</span>
+                                <Check className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-0.5" />
+                                <span className="text-sm sm:text-base text-gray-700 font-medium">{feature}</span>
                             </motion.div>
                         ))}
                     </div>
@@ -406,21 +406,21 @@ const ServiceDetail = () => {
             </section>
 
             {/* Benefits Section */}
-            <section className="py-20 bg-[#ffffff]">
+            <section className="py-12 sm:py-16 md:py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Key Benefits</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12">Key Benefits</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                         {service.benefits.map((benefit, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="bg-[#f0f0f0] p-8 rounded-2xl border border-gray-100"
+                                className="bg-[#f0f0f0] p-5 sm:p-8 rounded-xl sm:rounded-2xl border border-gray-100"
                             >
-                                <div className="flex items-start gap-4">
+                                <div className="flex items-start gap-3 sm:gap-4">
                                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                                    <p className="text-lg text-gray-700">{benefit}</p>
+                                    <p className="text-sm sm:text-lg text-gray-700">{benefit}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -429,10 +429,10 @@ const ServiceDetail = () => {
             </section>
 
             {/* Process Section */}
-            <section className="py-20 bg-[#ffffff]">
+            <section className="py-12 sm:py-16 md:py-20 bg-[#ffffff]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Process</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-16">Our Process</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                         {service.process.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -440,13 +440,13 @@ const ServiceDetail = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="relative bg-[#f0f0f0] p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group"
+                                className="relative bg-[#f0f0f0] p-5 sm:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all group"
                             >
-                                <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                                <div className="absolute -top-3 sm:-top-4 -left-3 sm:-left-4 w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                                     {index + 1}
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 mt-2">{item.step}</h3>
-                                <p className="text-gray-600">{item.desc}</p>
+                                <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 mt-1 sm:mt-2">{item.step}</h3>
+                                <p className="text-sm sm:text-base text-gray-600">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -454,15 +454,15 @@ const ServiceDetail = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-primary">
+            <section className="py-12 sm:py-16 md:py-20 bg-primary">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
-                    <p className="text-white/90 text-xl mb-10">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">Ready to Get Started?</h2>
+                    <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-10 leading-relaxed px-2">
                         Let's discuss how we can help you achieve your goals with {service.title.toLowerCase()}.
                     </p>
                     <Link
                         to="/contact"
-                        className="inline-block px-10 py-5 bg-white text-primary rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl"
+                        className="inline-block px-6 sm:px-10 py-3.5 sm:py-5 bg-white text-primary rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all shadow-xl"
                     >
                         Contact Us Today
                     </Link>

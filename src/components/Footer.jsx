@@ -19,14 +19,14 @@ const Footer = () => {
                         <Link to="/" className="flex items-center space-x-2">
                             <Logo className="h-10 md:h-14" isDarkBg={true} />
                         </Link>
-                        <p className="text-xs md:text-sm leading-relaxed text-gray-400">
+                        <p className="text-sm md:text-sm leading-relaxed text-gray-400">
                             {t(translations, 'footer.desc')}
                         </p>
-                        <div className="flex space-x-2 md:space-x-3">
-                            <a href="#" className="w-8 h-8 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><Facebook className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
-                            <a href="#" className="w-8 h-8 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><Twitter className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
-                            <a href="#" className="w-8 h-8 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><Instagram className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
-                            <a href="#" className="w-8 h-8 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
+                        <div className="flex space-x-3 md:space-x-3">
+                            <a href="#" className="w-10 h-10 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4 md:w-4 md:h-4" /></a>
+                            <a href="#" className="w-10 h-10 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" aria-label="Twitter"><Twitter className="w-4 h-4 md:w-4 md:h-4" /></a>
+                            <a href="#" className="w-10 h-10 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram"><Instagram className="w-4 h-4 md:w-4 md:h-4" /></a>
+                            <a href="#" className="w-10 h-10 md:w-9 md:h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" aria-label="Linkedin"><Linkedin className="w-4 h-4 md:w-4 md:h-4" /></a>
                         </div>
                     </div>
 
