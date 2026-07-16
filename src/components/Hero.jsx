@@ -121,12 +121,12 @@ const Hero = () => {
                         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-3 sm:mb-4 md:mb-6 px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full bg-primary/10 border border-primary/20">
                             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse"></span>
                             <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-red-500 bg-clip-text text-transparent font-semibold text-xs sm:text-sm tracking-wide">
-                               Remote teams for IT and software solutions
+                               We are Remote teams for IT and software solutions
                             </span>
                         </motion.div>
 
                         <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-secondary dark:text-white leading-tight mb-3 sm:mb-4 md:mb-6">
-                            We Build <span className="gradient-text">Digital</span> Solutions That <span className="gradient-text">Matter</span>
+                            We Build <span className="gradient-text">Digital</span> IT Solutions That <span className="gradient-text">Matter</span>
                         </motion.h1>
 
                         <motion.p variants={itemVariants} className="text-sm sm:text-md md:text-base lg:text-lg text-gray-800 dark:text-gray-200 mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
