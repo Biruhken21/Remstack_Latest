@@ -77,7 +77,7 @@ const Hero = () => {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20 pb-8 sm:pb-10 md:pt-28 md:pb-16">
             {/* Background Image - dimmed slightly for better text readability */}
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/homepageback.png)' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-gray-50/70 dark:from-gray-900/70 dark:via-[#0f172a]/60 dark:to-blue-900/70"></div>
+                <div className="absolute inset-0 hero-bg-overlay bg-gradient-to-br from-white/70 via-white/60 to-gray-50/70 dark:from-gray-900/70 dark:via-[#0f172a]/60 dark:to-blue-900/70"></div>
             </div>
             
             {/* Background Decorations */}

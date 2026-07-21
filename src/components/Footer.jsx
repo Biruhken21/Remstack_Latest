@@ -49,9 +49,9 @@ const Footer = () => {
                             <li><Link to="/services/custom-software" className="text-xs md:text-sm hover:text-primary transition-colors">Custom Software</Link></li>
                             <li><Link to="/services/mobile-apps" className="text-xs md:text-sm hover:text-primary transition-colors">Mobile Apps</Link></li>
                             <li><Link to="/services/web-development" className="text-xs md:text-sm hover:text-primary transition-colors">Web Development</Link></li>
-                            <li><Link to="/services/digital-marketing" className="text-xs md:text-sm hover:text-primary transition-colors">Digital Marketing</Link></li>
-                            <li><Link to="/services/startup-consulting" className="text-xs md:text-sm hover:text-primary transition-colors">Startup Consulting</Link></li>
-                            <li><Link to="/services/graphics-design" className="text-xs md:text-sm hover:text-primary transition-colors">Graphics Design</Link></li>
+                            <li><Link to="/services/devops-services" className="text-xs md:text-sm hover:text-primary transition-colors">devops-services</Link></li>
+                            <li><Link to="/services/cybersecurity" className="text-xs md:text-sm hover:text-primary transition-colors">cybersecurity</Link></li>
+                            <li><Link to="/services/cloud-solutions" className="text-xs md:text-sm hover:text-primary transition-colors">Cloud Solutions</Link></li>
                         </ul>
                     </div>
 
